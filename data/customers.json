@@ -1,0 +1,547 @@
+[
+  {
+	"id": "wren",
+	"name": "Wren",
+	"description": "Moth-winged courier",
+	"likes": [
+	  "cozy",
+	  "found-family",
+      "adventure"
+	],
+	"dislikes": [
+	  "sad",
+      "war"
+	],
+	"unlockAtRep": 0,
+	"giftLikes": [
+	  "honey-cake",
+      "acorn-cap-hat"
+	],
+	"giftDislikes": [
+      "squid-ink"
+	],
+	"backstory": "Wren flies letters between hollow trees and considers every doorstep a possible home.",
+	"specialRequest": {
+	  "text": "Just got back from the longest route I've ever flown. Give me something that feels like landing.",
+	  "wants": [
+		"cozy",
+        "found-family"
+	  ],
+	  "avoid": [
+        "sad"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "Something that feels like coming home. Nothing too sad.",
+		"wants": [
+          "cozy"
+		],
+		"avoid": [
+          "sad"
+		]
+	  },
+	  {
+		"text": "I want a story about people who end up as family, even if they didn't start that way.",
+		"wants": [
+          "found-family"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I've got three days off and I want to go somewhere without actually going anywhere.",
+		"wants": [
+		  "adventure",
+          "cozy"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "Nothing with a battlefield in it, please. I've delivered too many casualty letters this month.",
+		"wants": [
+          "hopeful"
+		],
+		"avoid": [
+          "war"
+		]
+	  }
+	]
+  },
+  {
+	"id": "old-thistle",
+	"name": "Old Thistle",
+	"description": "Retired hedge witch",
+	"likes": [
+	  "literary",
+	  "historical",
+      "mystery"
+	],
+	"dislikes": [
+	  "romance",
+      "series"
+	],
+	"unlockAtRep": 0,
+	"giftLikes": [
+	  "moonlit-tea",
+      "pressed-violet"
+	],
+	"giftDislikes": [
+      "acorn-cap-hat"
+	],
+	"backstory": "Thistle hexed her last landlord and retired the same week, on principle.",
+	"specialRequest": {
+	  "text": "I've read everything twice. Surprise this old woman, if you can manage it.",
+	  "wants": [
+		"literary",
+        "mystery"
+	  ],
+	  "avoid": [
+        "romance"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "Give me a book with some weight to it.",
+		"wants": [
+          "literary"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "Something that happened a long time ago, told properly.",
+		"wants": [
+          "historical"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I want to be kept guessing until the last page.",
+		"wants": [
+          "mystery"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "No moping about sweethearts. I want a whole book, not half a romance.",
+		"wants": [
+          "literary"
+		],
+		"avoid": [
+          "romance"
+		]
+	  }
+	]
+  },
+  {
+	"id": "pip",
+	"name": "Pip",
+	"description": "Changeling apprentice",
+	"likes": [
+	  "magic-school",
+	  "funny",
+      "adventure"
+	],
+	"dislikes": [
+	  "long",
+      "dark"
+	],
+	"unlockAtRep": 0,
+	"giftLikes": [
+	  "honey-cake",
+      "squid-ink"
+	],
+	"giftDislikes": [
+      "pressed-violet"
+	],
+	"backstory": "Pip is apprenticed to three different masters at once and hasn't told any of them.",
+	"specialRequest": {
+	  "text": "I snuck out between lessons. Quick, before someone notices, give me your best short one.",
+	  "wants": [
+		"funny",
+        "short"
+	  ],
+	  "avoid": [
+        "long"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "I need something fun for the train. Short, please!",
+		"wants": [
+		  "funny",
+          "short"
+		],
+		"avoid": [
+          "long"
+		]
+	  },
+	  {
+		"text": "Got any books about learning magic the hard way?",
+		"wants": [
+          "magic-school"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I want to laugh. I have had a week.",
+		"wants": [
+          "funny"
+		],
+		"avoid": [
+          "dark"
+		]
+	  },
+	  {
+		"text": "Something with a proper quest in it. Not a long one, my attention span is famously bad.",
+		"wants": [
+		  "adventure",
+          "short"
+		],
+		"avoid": [
+          "long"
+		]
+	  }
+	]
+  },
+  {
+	"id": "lady-veil",
+	"name": "Lady Veil",
+	"description": "Ghost from 1893",
+	"likes": [
+	  "gothic",
+	  "romance",
+      "slow-burn"
+	],
+	"dislikes": [
+	  "sci-fi",
+      "funny"
+	],
+	"unlockAtRep": 0,
+	"giftLikes": [
+	  "squid-ink",
+      "silver-thimble"
+	],
+	"giftDislikes": [
+      "honey-cake"
+	],
+	"backstory": "Lady Veil has haunted the reading nook since long before it had a name, and misses her correspondence more than her life.",
+	"specialRequest": {
+	  "text": "It has been a hundred and thirty years since anyone courted me properly. Find me a book that remembers how.",
+	  "wants": [
+		"romance",
+        "slow-burn"
+	  ],
+	  "avoid": [
+        "funny"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "Something with candlelight and longing.",
+		"wants": [
+		  "romance",
+          "slow-burn"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I want a house with a past. The gloomier the better.",
+		"wants": [
+          "gothic"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "No spaceships. I do not trust the future.",
+		"wants": [
+          "gothic"
+		],
+		"avoid": [
+          "sci-fi"
+		]
+	  },
+	  {
+		"text": "Nothing that plays love for laughs. I take it seriously.",
+		"wants": [
+          "romance"
+		],
+		"avoid": [
+          "funny"
+		]
+	  }
+	]
+  },
+  {
+	"id": "bramble",
+	"name": "Bramble",
+	"description": "Grumpy oak spirit",
+	"likes": [
+	  "fae",
+	  "dark",
+      "enemies-to-lovers"
+	],
+	"dislikes": [
+	  "cozy",
+      "low-stakes"
+	],
+	"unlockAtRep": 10,
+	"giftLikes": [
+	  "acorn-cap-hat",
+      "squid-ink"
+	],
+	"giftDislikes": [
+      "pressed-violet"
+	],
+	"backstory": "Bramble has stood in the same clearing for four hundred years and resents anyone who moved faster than a tree.",
+	"specialRequest": {
+	  "text": "You've earned the right to stop wasting my time with easy books. Give me something with real teeth.",
+	  "wants": [
+		"dark",
+        "enemies-to-lovers"
+	  ],
+	  "avoid": [
+        "cozy"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "No fluff. I want teeth.",
+		"wants": [
+          "dark"
+		],
+		"avoid": [
+          "cozy"
+		]
+	  },
+	  {
+		"text": "Give me two people who should hate each other.",
+		"wants": [
+          "enemies-to-lovers"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "Something about my own kind, for once, and not the cheerful sort.",
+		"wants": [
+		  "fae",
+          "dark"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I have no patience for low stakes. Make it matter.",
+		"wants": [
+          "dark"
+		],
+		"avoid": [
+          "low-stakes"
+		]
+	  }
+	]
+  },
+  {
+	"id": "the-twins",
+	"name": "The Twins",
+	"description": "Two pixies who share one book",
+	"likes": [
+	  "funny",
+	  "short",
+      "hopeful"
+	],
+	"dislikes": [
+	  "sad",
+      "literary"
+	],
+	"unlockAtRep": 25,
+	"giftLikes": [
+	  "honey-cake",
+      "pressed-violet"
+	],
+	"giftDislikes": [
+      "silver-thimble"
+	],
+	"backstory": "The Twins have never finished a sentence separately and see no reason to start.",
+	"specialRequest": {
+	  "text": "We agreed on something for once. Don't waste it.",
+	  "wants": [
+		"funny",
+        "hopeful"
+	  ],
+	  "avoid": [
+        "sad"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "We only have one afternoon. Make it count.",
+		"wants": [
+          "short"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "We want to laugh at the same parts. Every time.",
+		"wants": [
+          "funny"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "Nothing heavy. We share everything, including bad moods, and we'd rather not.",
+		"wants": [
+          "hopeful"
+		],
+		"avoid": [
+          "sad"
+		]
+	  },
+	  {
+		"text": "No big important books. We just want a nice time.",
+		"wants": [
+		  "funny",
+          "short"
+		],
+		"avoid": [
+          "literary"
+		]
+	  }
+	]
+  },
+  {
+	"id": "mirelle",
+	"name": "Mirelle",
+	"description": "Lake-dwelling scholar",
+	"likes": [
+	  "sci-fi",
+	  "mystery",
+      "standalone"
+	],
+	"dislikes": [
+	  "romance",
+      "series"
+	],
+	"unlockAtRep": 45,
+	"giftLikes": [
+	  "moonlit-tea",
+      "silver-thimble"
+	],
+	"giftDislikes": [
+      "honey-cake"
+	],
+	"backstory": "Mirelle surfaces from the lake once a week, always with a new theory and always missing dinner.",
+	"specialRequest": {
+	  "text": "I have a whole week free of surfacing duties. Give me the book you'd be embarrassed to admit you loved.",
+	  "wants": [
+		"sci-fi",
+        "mystery"
+	  ],
+	  "avoid": [
+        "romance"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "Something that makes me think for days.",
+		"wants": [
+          "sci-fi"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "I want a puzzle with a real solution, not a feeling.",
+		"wants": [
+          "mystery"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "One book, whole and complete. I don't want to wait for sequels.",
+		"wants": [
+          "standalone"
+		],
+		"avoid": [
+          "series"
+		]
+	  },
+	  {
+		"text": "No romance subplot, please. I'm here for the ideas.",
+		"wants": [
+		  "sci-fi",
+          "mystery"
+		],
+		"avoid": [
+          "romance"
+		]
+	  }
+	]
+  },
+  {
+	"id": "the-collector",
+	"name": "The Collector",
+	"description": "Gloved, and never gives a name",
+	"likes": [
+	  "literary",
+	  "historical",
+      "mystery"
+	],
+	"dislikes": [
+	  "funny",
+      "low-stakes"
+	],
+	"unlockAtRep": 0,
+	"needsRoom": "alcove",
+	"giftLikes": [
+	  "silver-thimble",
+      "squid-ink"
+	],
+	"giftDislikes": [
+      "honey-cake"
+	],
+	"backstory": "The Collector has outbid three museums this year and will not say what for.",
+	"specialRequest": {
+	  "text": "I am told you can be discreet. I want the one nobody else will sell me.",
+	  "wants": [
+		"literary",
+        "mystery"
+	  ],
+	  "avoid": [
+        "funny"
+	  ]
+	},
+	"requests": [
+	  {
+		"text": "Something from the locked case. I'll know if you fetch me an ordinary book.",
+		"wants": [
+          "literary"
+		],
+		"avoid": [
+          "funny"
+		]
+	  },
+	  {
+		"text": "I collect the difficult ones. What have you that nobody finishes?",
+		"wants": [
+		  "literary",
+          "historical"
+		],
+		"avoid": []
+	  },
+	  {
+		"text": "A provenance, please, not a paperback.",
+		"wants": [
+          "historical"
+		],
+		"avoid": [
+          "low-stakes"
+		]
+	  },
+	  {
+		"text": "I want a puzzle that has outlived its author.",
+		"wants": [
+          "mystery"
+		],
+		"avoid": []
+	  }
+	]
+  }
+]

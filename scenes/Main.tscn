@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://m5dp66d7drik"]
+
+[ext_resource type="Script" uid="uid://clpkm3hj2k3ex" path="res://scenes/Main.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/Library.tscn" id="2_library"]
+[ext_resource type="PackedScene" path="res://ui/LibraryScreen.tscn" id="3_screen"]
+[ext_resource type="PackedScene" path="res://ui/TabBar.tscn" id="4_tabbar"]
+[ext_resource type="PackedScene" path="res://ui/BookCard.tscn" id="5_bookcard"]
+[ext_resource type="PackedScene" path="res://ui/CustomerSheet.tscn" id="6_customer"]
+[ext_resource type="PackedScene" path="res://ui/ReturnSheet.tscn" id="7_return"]
+[ext_resource type="PackedScene" path="res://ui/OrdersScreen.tscn" id="8_orders"]
+[ext_resource type="PackedScene" path="res://ui/JournalScreen.tscn" id="9_journal"]
+[ext_resource type="PackedScene" path="res://ui/DaySummary.tscn" id="10_summary"]
+[ext_resource type="PackedScene" path="res://ui/FurnishScreen.tscn" id="11_furnish"]
+[ext_resource type="PackedScene" path="res://ui/GiftPicker.tscn" id="12_gift"]
+
+[node name="Main" type="Node2D" unique_id=290347624]
+script = ExtResource("1_script")
+
+[node name="Library" parent="." unique_id=1397572553 instance=ExtResource("2_library")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1910292910]
+
+[node name="LibraryScreen" parent="UI" unique_id=1872609418 instance=ExtResource("3_screen")]
+unique_name_in_owner = true
+
+[node name="OrdersScreen" parent="UI" instance=ExtResource("8_orders")]
+unique_name_in_owner = true
+visible = false
+
+[node name="JournalScreen" parent="UI" instance=ExtResource("9_journal")]
+unique_name_in_owner = true
+visible = false
+
+[node name="FurnishScreen" parent="UI" instance=ExtResource("11_furnish")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PlaceholderScreen" type="Control" parent="UI" unique_id=331933529]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="UI/PlaceholderScreen" unique_id=739933387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.152941, 0.12549, 1)
+
+[node name="PlaceholderLabel" type="Label" parent="UI/PlaceholderScreen" unique_id=1468405682]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Heading"
+text = "Orders tab"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabBar" parent="UI" unique_id=1071280124 instance=ExtResource("4_tabbar")]
+unique_name_in_owner = true
+
+[node name="Sheets" type="CanvasLayer" parent="." unique_id=2032222364]
+layer = 2
+
+[node name="BookCard" parent="Sheets" unique_id=1357950721 instance=ExtResource("5_bookcard")]
+unique_name_in_owner = true
+
+[node name="CustomerSheet" parent="Sheets" instance=ExtResource("6_customer")]
+unique_name_in_owner = true
+
+[node name="ReturnSheet" parent="Sheets" instance=ExtResource("7_return")]
+unique_name_in_owner = true
+
+[node name="DaySummary" parent="Sheets" instance=ExtResource("10_summary")]
+unique_name_in_owner = true
+
+[node name="GiftPicker" parent="Sheets" instance=ExtResource("12_gift")]
+unique_name_in_owner = true

@@ -1,0 +1,97 @@
+{
+  "specific_request": [
+	"Do you have {title}? Everyone at the market is talking about it.",
+	"I'm after {title}, if you've got a copy.",
+	"A friend swore by {title}. Is it on your shelves?",
+    "{title}. That's what I walked all this way for."
+  ],
+  "ask_like": [
+	"Anything with {tag} in it, really. I could live there.",
+	"I'll always say yes to {tag}.",
+	"{tag}, if you have it. That's my weakness.",
+    "You've caught me out. I'm a sucker for {tag}."
+  ],
+  "ask_dislike": [
+	"Just nothing with {tag}. I've had my fill of that.",
+	"I'd rather not, if there's {tag} in it.",
+	"No {tag}. Please.",
+    "{tag} and I have never got along."
+  ],
+  "ask_exhausted": [
+	"You already know my tastes better than I do.",
+	"I think you've got the measure of me by now.",
+    "There's nothing left to tell you, honestly."
+  ],
+  "reaction_good": [
+	"Oh, this looks perfect.",
+	"Where has this been all my life?",
+	"You've done it again.",
+    "I'm starting this tonight."
+  ],
+  "reaction_neutral": [
+	"I'll give it a try.",
+	"Hm. All right, why not.",
+	"This could work.",
+    "I'll see how I get on with it."
+  ],
+  "reaction_poor": [
+	"If you say so.",
+	"Really? This one?",
+	"I'll try. No promises.",
+    "Hm. Well."
+  ],
+  "specific_hand_over": [
+	"You have it! Oh, wonderful.",
+	"I knew you'd come through.",
+    "That's the one. Thank you."
+  ],
+  "specific_out": [
+	"Out already? Of course it is.",
+	"Ah. Next time, then.",
+    "Someone beat me to it."
+  ],
+  "specific_missing": [
+	"Not even one copy? A shame.",
+	"Oh. I'd rather hoped you would.",
+    "Well. Perhaps you'll order one in."
+  ],
+  "wanderer_names": [
+	"A hedgehog in a scarf",
+	"A very tall stranger",
+	"A damp river sprite",
+	"Someone's aunt",
+	"A travelling tinker",
+	"A sleepy badger",
+	"A hooded figure",
+    "A lost courier"
+  ],
+  "wanderer_descriptions": [
+	"Passing through",
+	"Followed the lamplight in",
+	"Sheltering from the rain",
+	"Only meant to look at the window",
+	"Heard about this place",
+    "Not from around here"
+  ],
+  "wanderer_requests": [
+	"I saw the window and thought — {tag}. Have you got any of that?",
+	"Something {tag}, if it's no trouble. I can't stay long.",
+	"A friend said you'd have {tag}. Was she right?",
+    "I'm after {tag}. Nothing else, really."
+  ],
+  "gift_liked": [
+	"Oh — you remembered. Thank you.",
+	"This is exactly right.",
+    "You are a dear. Truly."
+  ],
+  "gift_neutral": [
+	"That's kind of you.",
+	"Thank you, I'll take it.",
+    "Well. That's nice."
+  ],
+  "gift_disliked": [
+	"Ah. No. I can't abide these.",
+	"That's... thoughtful. I suppose.",
+    "You weren't to know, but no."
+  ]
+}

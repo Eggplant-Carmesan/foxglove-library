@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/FurnishScreen.gd" id="1_script"]
+
+[node name="FurnishScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.152941, 0.12549, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 88
+
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ShelvesTitle" type="Label" parent="Margin/Scroll/Column"]
+layout_mode = 2
+theme_type_variation = &"Heading"
+text = "Rooms and bookcases"
+
+[node name="BookcaseCard" type="PanelContainer" parent="Margin/Scroll/Column"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanel"
+
+[node name="BookcaseBox" type="VBoxContainer" parent="Margin/Scroll/Column/BookcaseCard"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CapacityValue" type="Label" parent="Margin/Scroll/Column/BookcaseCard/BookcaseBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "30 of 40 slots used"
+
+[node name="BookcasePrice" type="Label" parent="Margin/Scroll/Column/BookcaseCard/BookcaseBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "Another bookcase adds 10 slots."
+autowrap_mode = 3
+
+[node name="BuyBookcaseButton" type="Button" parent="Margin/Scroll/Column/BookcaseCard/BookcaseBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy · 60 acorns"
+
+[node name="RoomList" type="VBoxContainer" parent="Margin/Scroll/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DecorTitle" type="Label" parent="Margin/Scroll/Column"]
+layout_mode = 2
+theme_type_variation = &"Heading"
+text = "Decor"
+
+[node name="DecorSlots" type="Label" parent="Margin/Scroll/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 of 4 slots used"
+
+[node name="DecorList" type="VBoxContainer" parent="Margin/Scroll/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12

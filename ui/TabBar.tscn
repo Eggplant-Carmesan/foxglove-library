@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/TabBar.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="sb_tabbar"]
+bg_color = Color(0.078431, 0.101961, 0.082353, 1)
+
+[node name="TabBar" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_script")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("sb_tabbar")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="LibraryButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Library"
+
+[node name="OrdersButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Orders"
+
+[node name="JournalButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Journal"
+
+[node name="FurnishButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Furnish"

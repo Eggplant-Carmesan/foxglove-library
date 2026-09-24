@@ -1,0 +1,11 @@
+[
+  { "id": "mushroom-lanterns", "name": "Mushroom lanterns", "tags": ["cozy", "fae"], "price": 35 },
+  { "id": "candelabra-and-velvet-drapes", "name": "Candelabra and velvet drapes", "tags": ["gothic", "romance", "slow-burn"], "price": 50 },
+  { "id": "star-charts", "name": "Star charts", "tags": ["sci-fi", "mystery"], "price": 45 },
+  { "id": "thorned-rose-arch", "name": "Thorned rose arch", "tags": ["fae", "dark", "enemies-to-lovers"], "price": 55 },
+  { "id": "pressed-flower-garland", "name": "Pressed-flower garland", "tags": ["romance", "hopeful"], "price": 30 },
+  { "id": "toadstool-cushions", "name": "Toadstool cushions", "tags": ["funny", "short", "magic-school"], "price": 35 },
+  { "id": "old-map-wall", "name": "Old map wall", "tags": ["adventure", "historical"], "price": 40 },
+  { "id": "owl-perch-and-quill-stand", "name": "Owl perch and quill stand", "tags": ["literary", "historical"], "price": 60, "needsRoom": "alcove" },
+  { "id": "hearth-and-patchwork-chairs", "name": "Hearth and patchwork chairs", "tags": ["cozy", "found-family", "low-stakes"], "price": 60, "needsRoom": "nook" }
+]

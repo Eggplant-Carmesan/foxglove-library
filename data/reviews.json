@@ -1,0 +1,32 @@
+{
+  "1": [
+	"Too much {tag} for me, honestly. I couldn't finish {title}.",
+	"{title} and I are not friends. All that {tag}.",
+	"I brought {title} back early. Far too much {tag}.",
+    "Whatever I was after, it wasn't {tag}. Sorry about {title}."
+  ],
+  "2": [
+	"{title} wasn't for me. A bit heavy on the {tag}.",
+	"I finished {title}, but I won't be thinking about it again.",
+	"Not bad, just not mine. Too much {tag} in the end.",
+    "{title} was fine. I only wanted less {tag}."
+  ],
+  "3": [
+	"{title} was a decent way to spend an evening.",
+	"I got on well enough with the {tag} of it.",
+	"{title} did what it promised. No complaints, no fireworks.",
+    "A solid one. {title} scratched the itch."
+  ],
+  "4": [
+	"I really enjoyed the {tag} of {title}.",
+	"{title} was just right. More {tag}, please.",
+	"I stayed up far too late with {title}. Lovely {tag}.",
+    "{title} won me over. That {tag} stayed with me for days."
+  ],
+  "5": [
+	"I loved the {tag} of it. {title} is going on my own shelf.",
+	"{title} might be the best {tag} I have ever borrowed.",
+	"No notes. {title} was perfect, especially all that {tag}.",
+    "I am recommending {title} to everyone I know. Such good {tag}."
+  ]
+}

@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/CustomerSheet.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ui/Portrait.tscn" id="2_portrait"]
+
+[node name="CustomerSheet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431, 0.101961, 0.082353, 0.75)
+
+[node name="BigPortrait" parent="." instance=ExtResource("2_portrait")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -1320.0
+offset_right = 120.0
+offset_bottom = -950.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sheet" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -448.0
+offset_right = -16.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ParchmentPanel"
+
+[node name="Content" type="VBoxContainer" parent="Sheet"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NameRow" type="HBoxContainer" parent="Sheet/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CustomerName" type="Label" parent="Sheet/Content/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "Wren"
+
+[node name="VisitCount" type="Label" parent="Sheet/Content/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"MutedLabel"
+text = "First visit"
+
+[node name="RequestText" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "Something that feels like coming home."
+autowrap_mode = 3
+
+[node name="TasteTags" type="HBoxContainer" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DialogLine" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "dialog"
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Sheet/Content"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="GiftButton" type="Button" parent="Sheet/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"DarkButton"
+text = "Give a gift"
+
+[node name="AskButton" type="Button" parent="Sheet/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"DarkButton"
+text = "Ask (1 left)"
+
+[node name="SecondaryButton" type="Button" parent="Sheet/Content/Buttons"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"DarkButton"
+text = "Suggest something else"
+
+[node name="PrimaryButton" type="Button" parent="Sheet/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Find a book"

@@ -1,0 +1,8 @@
+[
+  { "id": "honey-cake", "name": "Honey cake", "price": 10 },
+  { "id": "moonlit-tea", "name": "Moonlit tea", "price": 12 },
+  { "id": "pressed-violet", "name": "Pressed violet", "price": 8 },
+  { "id": "silver-thimble", "name": "Silver thimble", "price": 20 },
+  { "id": "squid-ink", "name": "Squid ink", "price": 15 },
+  { "id": "acorn-cap-hat", "name": "Acorn-cap hat", "price": 18 }
+]

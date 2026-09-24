@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/DaySummary.gd" id="1_script"]
+
+[node name="DaySummary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431, 0.101961, 0.082353, 0.8)
+
+[node name="Sheet" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -520.0
+offset_right = -16.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ParchmentPanel"
+
+[node name="Content" type="VBoxContainer" parent="Sheet"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SummaryTitle" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "Day 1, closed up"
+
+[node name="SummaryLent" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "0 books lent out"
+
+[node name="SummaryReturned" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "0 books came back"
+
+[node name="SummaryAcorns" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "+0 acorns earned"
+
+[node name="SummaryReputation" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "+0 reputation"
+
+[node name="MissedSection" type="VBoxContainer" parent="Sheet/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MissedTitle" type="Label" parent="Sheet/Content/MissedSection"]
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "Missed requests"
+
+[node name="MissedList" type="VBoxContainer" parent="Sheet/Content/MissedSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="UnlockedSection" type="VBoxContainer" parent="Sheet/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="UnlockedTitle" type="Label" parent="Sheet/Content/UnlockedSection"]
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "A new face"
+
+[node name="UnlockedList" type="VBoxContainer" parent="Sheet/Content/UnlockedSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="OpenUpButton" type="Button" parent="Sheet/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Open up tomorrow"

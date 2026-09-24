@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/Portrait.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="sb_arch"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 54
+corner_radius_top_right = 54
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="Portrait" type="VBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+offset_right = 110.0
+offset_bottom = 172.0
+theme_override_constants/separation = 6
+script = ExtResource("1_script")
+
+[node name="Frame" type="Panel" parent="."]
+custom_minimum_size = Vector2(110, 126)
+layout_mode = 2
+self_modulate = Color(0.290196, 0.196078, 0.133333, 1)
+theme_override_styles/panel = SubResource("sb_arch")
+
+[node name="InitialLabel" type="Label" parent="Frame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Heading"
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArtSlot" type="TextureRect" parent="Frame"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DescriptionLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "description"
+horizontal_alignment = 1
+autowrap_mode = 3

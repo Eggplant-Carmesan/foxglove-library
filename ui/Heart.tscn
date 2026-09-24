@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/Heart.gd" id="1_script"]
+
+[node name="Heart" type="Control"]
+custom_minimum_size = Vector2(44, 44)
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Shape" type="Polygon2D" parent="."]
+position = Vector2(22, 21)
+color = Color(0.878431, 0.694118, 0.337255, 1)
+polygon = PackedVector2Array(0, -5.5, 2.2, -10.2, 11.4, -12.7, 17.6, -4.4, 11.4, 6.1, 2.2, 14.6, 0, 18.7, -2.2, 14.6, -11.4, 6.1, -17.6, -4.4, -11.4, -12.7, -2.2, -10.2)

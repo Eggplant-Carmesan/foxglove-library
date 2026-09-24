@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/Leaf.gd" id="1_script"]
+
+[node name="Leaf" type="Control"]
+custom_minimum_size = Vector2(22, 22)
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Shape" type="Polygon2D" parent="."]
+position = Vector2(11, 11)
+color = Color(0.305882, 0.419608, 0.247059, 1)
+polygon = PackedVector2Array(0, -9, 4, -5, 5.5, 1, 0, 9, -5.5, 1, -4, -5)
