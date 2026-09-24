@@ -27,7 +27,6 @@ func _ready() -> void:
 	_book_card.recommend_pressed.connect(_on_recommend)
 	_library_screen.filter_changed.connect(_library.apply_filter)
 	_library_screen.greet_pressed.connect(_on_greet_pressed)
-	_library_screen.dismiss_pressed.connect(_on_dismiss_pressed)
 	_library_screen.end_day_pressed.connect(_on_end_day_pressed)
 	_library_screen.pick_back_pressed.connect(_on_pick_back_pressed)
 	_library_screen.zone_selected.connect(_on_zone_selected)
@@ -93,7 +92,6 @@ func _on_greet_pressed() -> void:
 		return
 	_library_screen.set_busy(true)
 	await _library.greet_visitor(GameState.customer_for_visit(visit))
-	_library_screen.set_busy(false)
 
 	if visit.get("kind") == "request":
 		GameState.note_visit(visit.get("customerId", ""))
@@ -106,14 +104,6 @@ func _on_greet_pressed() -> void:
 
 func _on_return_done() -> void:
 	await _send_off("")
-
-
-func _on_dismiss_pressed() -> void:
-	_library_screen.set_busy(true)
-	await _library.dismiss_visitor()
-	GameState.dequeue_visit()
-	_library_screen.set_at_counter(false)
-	_library_screen.set_busy(false)
 
 
 # --- Pick mode ---
@@ -168,11 +158,11 @@ func _on_declined() -> void:
 ## The visitor reacts, then walks out with whatever they were lent.
 func _send_off(line: String, carried_book_id: String = "") -> void:
 	_exit_pick_mode()
-	_library_screen.set_at_counter(false)
 	if line != "":
 		_library.visitor_say(line)
 		await get_tree().create_timer(REACTION_HOLD).timeout
 	await _library.dismiss_visitor(carried_book_id)
+	_library_screen.set_busy(false)
 
 
 ## Closing up shows the day's tally; the next day starts when the player

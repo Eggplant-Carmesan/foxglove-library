@@ -5,9 +5,9 @@ extends Control
 signal closed
 signal recommend_pressed(copy_id: String)
 
-const SHEET_TOP := -488.0
+const SHEET_TOP := -610.0
 const SHEET_BOTTOM := -88.0
-const SHEET_TRAVEL := 488.0
+const SHEET_TRAVEL := 610.0
 const SLIDE_TIME := 0.28
 
 @onready var _backdrop: ColorRect = $Backdrop

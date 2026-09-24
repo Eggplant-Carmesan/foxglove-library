@@ -13,8 +13,8 @@ static func is_specific(request: Dictionary) -> bool:
 
 
 ## Whether a requested book is on the shelf, owned but loaned out, or not
-## owned at all. Loans due back today have already moved into the queue,
-## so those count as out too.
+## owned at all. A loan due back today has left state.loans for the day's
+## visit list, but it still isn't on the shelf to hand over.
 static func shelf_status(state: Dictionary, book_id: String) -> String:
 	for copy in state.get("shelf", []):
 		if copy.get("bookId") == book_id:
@@ -22,7 +22,7 @@ static func shelf_status(state: Dictionary, book_id: String) -> String:
 	for loan in state.get("loans", []):
 		if loan.get("bookId") == book_id:
 			return OUT
-	for visit in state.get("queue", []):
+	for visit in state.get("queue", []) + state.get("pendingArrivals", []):
 		if visit.get("kind") == "return" and visit.get("loan", {}).get("bookId") == book_id:
 			return OUT
 	return MISSING

@@ -5,9 +5,9 @@ extends Control
 
 signal open_up_pressed
 
-const SHEET_TOP := -520.0
+const SHEET_TOP := -660.0
 const SHEET_BOTTOM := -88.0
-const SHEET_TRAVEL := 520.0
+const SHEET_TRAVEL := 660.0
 const SLIDE_TIME := 0.28
 
 @onready var _backdrop: ColorRect = $Backdrop

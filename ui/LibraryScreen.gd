@@ -1,11 +1,10 @@
 class_name LibraryScreen
 extends Control
 ## Chrome over the library world: day/acorn/reputation header, tag filter
-## chips, and the bottom card that announces the next visitor.
+## chips, and the door chime that says how many visitors are waiting.
 
 signal filter_changed(tag: String)
 signal greet_pressed
-signal dismiss_pressed
 signal end_day_pressed
 signal pick_back_pressed
 signal zone_selected(zone: String)
@@ -16,12 +15,9 @@ const CHIP_TAG_COUNT := 8
 @onready var _acorn_label: Label = %AcornLabel
 @onready var _rep_label: Label = %RepLabel
 @onready var _chips: HBoxContainer = %FilterChips
-@onready var _portrait: Portrait = %Portrait
-@onready var _title_label: Label = %CardTitle
-@onready var _name_label: Label = %CardName
-@onready var _sub_label: Label = %CardSubtitle
-@onready var _action_button: Button = %ActionButton
-@onready var _bottom_card: PanelContainer = $BottomCard
+@onready var _bell: VisitorBell = %VisitorBell
+@onready var _end_day_button: Button = %EndDayButton
+@onready var _arrival_hint: Label = %ArrivalHint
 @onready var _pick_banner: PanelContainer = %PickBanner
 @onready var _pick_request: Label = %PickRequest
 @onready var _pick_back_button: Button = %PickBackButton
@@ -29,15 +25,17 @@ const CHIP_TAG_COUNT := 8
 @onready var _nook_button: Button = %NookButton
 @onready var _alcove_button: Button = %AlcoveButton
 
-var _at_counter := false
+var _pick_mode := false
+var _busy := false
 
 
 func _ready() -> void:
 	GameState.day_changed.connect(_on_value_changed)
 	GameState.acorns_changed.connect(_on_value_changed)
 	GameState.reputation_changed.connect(_on_value_changed)
-	GameState.queue_changed.connect(_refresh_card)
-	_action_button.pressed.connect(_on_action_pressed)
+	GameState.queue_changed.connect(_refresh_visitors)
+	_bell.pressed.connect(_on_bell_pressed)
+	_end_day_button.pressed.connect(end_day_pressed.emit)
 	_pick_back_button.pressed.connect(pick_back_pressed.emit)
 	_nook_button.pressed.connect(zone_selected.emit.bind(FurnishLogic.NOOK))
 	%HallButton.pressed.connect(zone_selected.emit.bind("hall"))
@@ -52,18 +50,19 @@ func _ready() -> void:
 ## Pick mode pins the request at the top and puts the visitor card away,
 ## so the shelves are what the player is looking at.
 func set_pick_mode(enabled: bool, request_text: String = "") -> void:
+	_pick_mode = enabled
 	_pick_banner.visible = enabled
-	_bottom_card.visible = not enabled
 	if enabled:
 		_zone_buttons.visible = false
 	else:
 		refresh_zone_buttons()
 	_pick_request.text = request_text
+	_refresh_visitors()
 
 
 func refresh() -> void:
 	_refresh_header()
-	_refresh_card()
+	_refresh_visitors()
 
 
 ## The zone strip only earns its space once there's somewhere else to go.
@@ -75,13 +74,9 @@ func refresh_zone_buttons() -> void:
 	_alcove_button.visible = has_alcove
 
 
-func set_at_counter(at_counter: bool) -> void:
-	_at_counter = at_counter
-	_refresh_card()
-
-
 func set_busy(busy: bool) -> void:
-	_action_button.disabled = busy
+	_busy = busy
+	_refresh_visitors()
 
 
 func _on_value_changed(_value: int) -> void:
@@ -132,45 +127,28 @@ func _common_tags() -> Array:
 	return tags.slice(0, CHIP_TAG_COUNT)
 
 
-# --- Bottom card ---
+# --- Visitors ---
 
-func _refresh_card() -> void:
-	var visit: Dictionary = GameState.current_visit()
+## The chime only counts; nobody comes in until the player asks them to.
+func _refresh_visitors() -> void:
+	var waiting: int = GameState.state.get("queue", []).size()
+	var expected := GameState.pending_arrivals()
+	var rang := _bell.set_count(waiting)
+	var quiet := waiting == 0 and not _pick_mode and not _busy
 
-	if visit.is_empty() and not _at_counter:
-		_portrait.visible = false
-		_title_label.text = "The library is quiet"
-		_name_label.text = ""
-		_sub_label.text = "Everyone has gone home for the evening."
-		_action_button.text = "End day"
-		return
+	_bell.visible = waiting > 0 and not _pick_mode
+	_bell.disabled = _busy
+	_end_day_button.visible = quiet
+	_end_day_button.text = "End day early" if expected > 0 else "End day"
 
-	var customer: Dictionary = GameState.customer_for_visit(visit)
-	_portrait.visible = true
-	_portrait.setup(customer)
-	_name_label.text = customer.get("name", "")
-	_sub_label.text = _visit_summary(visit)
+	# During a lull, say whether anyone else is expected before closing up.
+	_arrival_hint.visible = quiet and expected > 0
+	_arrival_hint.text = "%d more expected today" % expected
 
-	if _at_counter:
-		_title_label.text = "At the counter"
-		_action_button.text = "Send them off"
-	else:
-		_title_label.text = "The door chime rings"
-		_action_button.text = "Greet"
+	if rang and _bell.visible:
+		_bell.ring()
 
 
-func _visit_summary(visit: Dictionary) -> String:
-	if visit.get("kind") == "return":
-		var loan: Dictionary = visit.get("loan", {})
-		var book: Dictionary = GameState.books.get(loan.get("bookId", ""), {})
-		return "Returning %s" % book.get("title", "a book")
-	return visit.get("request", {}).get("text", "")
-
-
-func _on_action_pressed() -> void:
-	if _at_counter:
-		dismiss_pressed.emit()
-	elif GameState.current_visit().is_empty():
-		end_day_pressed.emit()
-	else:
+func _on_bell_pressed() -> void:
+	if not _busy:
 		greet_pressed.emit()

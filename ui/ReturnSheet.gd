@@ -6,9 +6,9 @@ extends Control
 signal done_pressed
 
 const HEART_SCENE := preload("res://ui/Heart.tscn")
-const SHEET_TOP := -528.0
+const SHEET_TOP := -650.0
 const SHEET_BOTTOM := -88.0
-const SHEET_TRAVEL := 528.0
+const SHEET_TRAVEL := 650.0
 const SLIDE_TIME := 0.28
 const HEART_STAGGER := 0.16
 const COUNT_TIME := 0.5

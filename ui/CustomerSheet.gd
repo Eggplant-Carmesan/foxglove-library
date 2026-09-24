@@ -9,9 +9,9 @@ signal declined
 signal suggest_pressed
 signal gift_pressed(customer_id: String)
 
-const SHEET_TOP := -448.0
+const SHEET_TOP := -570.0
 const SHEET_BOTTOM := -88.0
-const SHEET_TRAVEL := 448.0
+const SHEET_TRAVEL := 570.0
 const SLIDE_TIME := 0.28
 
 @onready var _backdrop: ColorRect = $Backdrop

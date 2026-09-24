@@ -249,6 +249,5 @@ func visitor_say(line: String) -> void:
 
 ## The hall warms from morning to dusk as the day's visits are worked through.
 func _update_time_of_day() -> void:
-	var remaining: int = GameState.state.get("queue", []).size()
-	var progress := clampf(1.0 - float(remaining) / float(Tuning.QUEUE_SIZE_MAX), 0.0, 1.0)
+	var progress := GameState.day_progress()
 	create_tween().tween_property(_tint, "color", MORNING_TINT.lerp(DUSK_TINT, progress), 0.6)
