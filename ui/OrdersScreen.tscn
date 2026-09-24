@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/OrdersScreen.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="sb_warning"]
+bg_color = Color(0.878431, 0.694118, 0.337255, 0.22)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.878431, 0.694118, 0.337255, 0.8)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+
+[node name="OrdersScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.152941, 0.12549, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 88
+
+[node name="Column" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Stats" type="HBoxContainer" parent="Margin/Column"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AcornCard" type="PanelContainer" parent="Margin/Column/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AcornBox" type="VBoxContainer" parent="Margin/Column/Stats/AcornCard"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="AcornTitle" type="Label" parent="Margin/Column/Stats/AcornCard/AcornBox"]
+layout_mode = 2
+text = "Acorns"
+
+[node name="AcornValue" type="Label" parent="Margin/Column/Stats/AcornCard/AcornBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Heading"
+text = "140"
+
+[node name="ShelfCard" type="PanelContainer" parent="Margin/Column/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShelfBox" type="VBoxContainer" parent="Margin/Column/Stats/ShelfCard"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ShelfTitle" type="Label" parent="Margin/Column/Stats/ShelfCard/ShelfBox"]
+layout_mode = 2
+text = "Shelf space"
+
+[node name="ShelfValue" type="Label" parent="Margin/Column/Stats/ShelfCard/ShelfBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Heading"
+text = "30 / 40"
+
+[node name="Warning" type="PanelContainer" parent="Margin/Column"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_warning")
+
+[node name="WarningRow" type="HBoxContainer" parent="Margin/Column/Warning"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WarningLabel" type="Label" parent="Margin/Column/Warning/WarningRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Not enough shelf space."
+autowrap_mode = 3
+
+[node name="WeedLinkButton" type="Button" parent="Margin/Column/Warning/WarningRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"DarkButton"
+text = "Weed dusty books"
+
+[node name="Catalog" type="ScrollContainer" parent="Margin/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="CatalogRows" type="VBoxContainer" parent="Margin/Column/Catalog"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="PlaceOrderButton" type="Button" parent="Margin/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+disabled = true
+text = "Place order"

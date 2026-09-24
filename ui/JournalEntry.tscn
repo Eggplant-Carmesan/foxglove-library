@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/JournalEntry.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ui/Portrait.tscn" id="2_portrait"]
+
+[sub_resource type="StyleBoxFlat" id="sb_entry"]
+bg_color = Color(0.94902, 0.913725, 0.839216, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[node name="JournalEntry" type="PanelContainer"]
+theme_override_styles/panel = SubResource("sb_entry")
+script = ExtResource("1_script")
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="EntryPortrait" parent="Row" instance=ExtResource("2_portrait")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Body" type="VBoxContainer" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="NameRow" type="HBoxContainer" parent="Row/Body"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EntryName" type="Label" parent="Row/Body/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "Wren"
+
+[node name="AffinityLeaves" type="HBoxContainer" parent="Row/Body/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 3
+
+[node name="LikeChips" type="HBoxContainer" parent="Row/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="DislikeChips" type="HBoxContainer" parent="Row/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="UnknownLabel" type="Label" parent="Row/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "tastes still a mystery"
+
+[node name="Backstory" type="Label" parent="Row/Body"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "backstory"
+autowrap_mode = 3
+
+[node name="ReviewList" type="VBoxContainer" parent="Row/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="NoReviews" type="Label" parent="Row/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "No reviews yet."
+
+[node name="GiftButton" type="Button" parent="Row/Body"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"DarkButton"
+text = "Give a gift"

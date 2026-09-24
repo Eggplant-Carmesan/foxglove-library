@@ -1,0 +1,210 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/LibraryScreen.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ui/Portrait.tscn" id="2_portrait"]
+
+[node name="LibraryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 44.0
+offset_right = -24.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="DayPill" type="PanelContainer" parent="Header"]
+layout_mode = 2
+theme_type_variation = &"StatPill"
+
+[node name="DayLabel" type="Label" parent="Header/DayPill"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StatLabel"
+text = "Day 1"
+
+[node name="AcornPill" type="PanelContainer" parent="Header"]
+layout_mode = 2
+theme_type_variation = &"StatPill"
+
+[node name="AcornLabel" type="Label" parent="Header/AcornPill"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StatLabel"
+text = "140 acorns"
+
+[node name="RepPill" type="PanelContainer" parent="Header"]
+layout_mode = 2
+theme_type_variation = &"StatPill"
+
+[node name="RepLabel" type="Label" parent="Header/RepPill"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StatLabel"
+text = "0 rep"
+
+[node name="FilterBar" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 116.0
+offset_right = -24.0
+offset_bottom = 184.0
+grow_horizontal = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="FilterChips" type="HBoxContainer" parent="FilterBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PickBanner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 196.0
+offset_right = -16.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_type_variation = &"ParchmentPanel"
+
+[node name="Row" type="HBoxContainer" parent="PickBanner"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Text" type="VBoxContainer" parent="PickBanner/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="PickLabel" type="Label" parent="PickBanner/Row/Text"]
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "Looking for"
+
+[node name="PickRequest" type="Label" parent="PickBanner/Row/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "request"
+autowrap_mode = 3
+
+[node name="PickBackButton" type="Button" parent="PickBanner/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"DarkButton"
+text = "Back"
+
+[node name="ZoneButtons" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -396.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="NookButton" type="Button" parent="ZoneButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Nook"
+
+[node name="HallButton" type="Button" parent="ZoneButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Hall"
+
+[node name="AlcoveButton" type="Button" parent="ZoneButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"Chip"
+text = "Alcove"
+
+[node name="BottomCard" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -330.0
+offset_right = -16.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ParchmentPanel"
+
+[node name="Row" type="HBoxContainer" parent="BottomCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Portrait" parent="BottomCard/Row" instance=ExtResource("2_portrait")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Info" type="VBoxContainer" parent="BottomCard/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="CardTitle" type="Label" parent="BottomCard/Row/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "The door chime rings"
+autowrap_mode = 3
+
+[node name="CardName" type="Label" parent="BottomCard/Row/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "Wren"
+
+[node name="CardSubtitle" type="Label" parent="BottomCard/Row/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"MutedLabel"
+text = "Something that feels like coming home."
+autowrap_mode = 3
+
+[node name="ActionButton" type="Button" parent="BottomCard/Row/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Greet"

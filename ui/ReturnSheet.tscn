@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/ReturnSheet.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ui/Portrait.tscn" id="2_portrait"]
+
+[sub_resource type="StyleBoxFlat" id="sb_rewards"]
+bg_color = Color(0.862745, 0.811765, 0.701961, 0.6)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+
+[node name="ReturnSheet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431, 0.101961, 0.082353, 0.75)
+
+[node name="BigPortrait" parent="." instance=ExtResource("2_portrait")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -1320.0
+offset_right = 120.0
+offset_bottom = -950.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sheet" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -528.0
+offset_right = -16.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ParchmentPanel"
+
+[node name="Content" type="VBoxContainer" parent="Sheet"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ReturnTitle" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedLabel"
+text = "Wren returns"
+
+[node name="ReturnBook" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkHeading"
+text = "Book title"
+autowrap_mode = 3
+
+[node name="HeartsRow" type="HBoxContainer" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ReviewLine" type="Label" parent="Sheet/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "review"
+autowrap_mode = 3
+
+[node name="Rewards" type="PanelContainer" parent="Sheet/Content"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_rewards")
+
+[node name="RewardsContent" type="VBoxContainer" parent="Sheet/Content/Rewards"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Stats" type="HBoxContainer" parent="Sheet/Content/Rewards/RewardsContent"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RewardReputation" type="Label" parent="Sheet/Content/Rewards/RewardsContent/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "+0 reputation"
+
+[node name="RewardTip" type="Label" parent="Sheet/Content/Rewards/RewardsContent/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "+0 acorns"
+
+[node name="RewardTagRow" type="HBoxContainer" parent="Sheet/Content/Rewards/RewardsContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DoneButton" type="Button" parent="Sheet/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Noted"
