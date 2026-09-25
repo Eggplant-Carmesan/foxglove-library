@@ -8,7 +8,6 @@ extends RefCounted
 const STARTING_ACORNS := 140
 const STARTING_REPUTATION := 0
 const STARTING_SHELF_BOOK_COUNT := 30
-const STARTING_UNLOCKED_CUSTOMER_COUNT := 4
 
 # --- Shelf / bookcases ---
 const BASE_SHELF_CAPACITY := 40
@@ -30,9 +29,6 @@ const QUESTIONS_PER_REQUEST := 1
 const DAILY_INCOME := 10
 const DUSTY_DAYS_THRESHOLD := 7
 const WEED_REFUND := 5
-
-# --- Customer unlocks ---
-const UNLOCK_REPUTATIONS: Array[int] = [10, 25, 45]
 
 # --- Matching (score_match) ---
 const MATCH_WANTS_POINTS := 3

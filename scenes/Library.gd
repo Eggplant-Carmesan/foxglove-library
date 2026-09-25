@@ -1,8 +1,8 @@
 class_name Library
 extends Node2D
-## The 2D library world: bookcases full of spines, a camera the player drags
-## left and right, and customers who walk in through the door. UI sheets live
-## on CanvasLayers above this scene.
+## The library world: an isometric hall of bookcases, a camera the player
+## drags left and right, and customers who walk in through the door. UI
+## sheets live on CanvasLayers above this scene.
 
 signal spine_selected(copy_id: String)
 
@@ -10,12 +10,16 @@ const CUSTOMER_SCENE := preload("res://scenes/Customer.tscn")
 const DECOR_SCENE := preload("res://scenes/DecorItem.tscn")
 const DRAG_FRICTION := 5.0
 const TAP_THRESHOLD := 14.0
+## How tall a person stands in the hall, in world pixels. A bookcase is
+## about 215, so this puts their head around the third shelf.
+const CUSTOMER_HEIGHT := 150.0
+## How far in front of the counter a visitor stands, in world pixels.
+const COUNTER_STANDOFF := Vector2(0.0, 74.0)
 const MORNING_TINT := Color(1.0, 0.98, 0.92)
 const DUSK_TINT := Color(0.74, 0.69, 0.86)
 
 @onready var _camera: Camera2D = $Camera2D
-@onready var _hall: MainHall = $MainHall
-@onready var _customers: Node2D = $Customers
+@onready var _hall: IsoHall = $IsoHall
 @onready var _tint: CanvasModulate = $CanvasModulate
 @onready var _nook: ReadingNook = $ReadingNook
 @onready var _alcove: RareAlcove = $RareAlcove
@@ -28,7 +32,7 @@ var _velocity := 0.0
 var _min_x := 0.0
 var _max_x := 0.0
 var _filter_tag := ""
-var _selected_spine: Spine = null
+var _selected_spine: IsoSpine = null
 var _current_customer: Customer = null
 
 
@@ -54,6 +58,10 @@ func refresh_zones(unlocking: String = "") -> void:
 	var has_alcove := FurnishLogic.owns_room(GameState.state, FurnishLogic.ALCOVE)
 	_nook.set_unlocked(has_nook, unlocking == FurnishLogic.NOOK)
 	_alcove.set_unlocked(has_alcove, unlocking == FurnishLogic.ALCOVE)
+	# Both side rooms are still drawn side-on. Until they are isometric too,
+	# an unowned one would just be a slab of the old art beside the hall.
+	_nook.visible = has_nook
+	_alcove.visible = has_alcove
 
 	_update_camera_bounds()
 	if unlocking != "":
@@ -115,9 +123,15 @@ func refresh_shelf() -> void:
 	_selected_spine = null
 	var shelf: Array = GameState.state.get("shelf", [])
 	var bookcases := _hall.get_bookcases()
+	# The room only shows the shelving the player has paid for, so buying a
+	# bookcase puts a real one against the wall instead of just raising a
+	# number. Spare cases stand ready in the scene, hidden until then.
+	var earned := ceili(float(OrdersLogic.shelf_capacity(GameState.state))
+		/ float(Tuning.SHELF_SLOTS_PER_BOOKCASE))
 	for i in bookcases.size():
-		var start := i * Bookcase.SLOTS
-		bookcases[i].set_copies(shelf.slice(start, start + Bookcase.SLOTS))
+		bookcases[i].visible = i < earned
+		var start := i * Tuning.SHELF_SLOTS_PER_BOOKCASE
+		bookcases[i].set_copies(shelf.slice(start, start + Tuning.SHELF_SLOTS_PER_BOOKCASE))
 	apply_filter(_filter_tag)
 
 
@@ -199,7 +213,7 @@ func _to_world(viewport_point: Vector2) -> Vector2:
 
 func _handle_tap(world_point: Vector2) -> void:
 	for bookcase in _hall.get_bookcases():
-		var spine: Spine = bookcase.spine_at(world_point)
+		var spine: IsoSpine = bookcase.spine_at(world_point)
 		if spine != null:
 			clear_selection()
 			_selected_spine = spine
@@ -211,16 +225,17 @@ func _handle_tap(world_point: Vector2) -> void:
 # --- Visitors ---
 
 func greet_visitor(customer: Dictionary) -> void:
-	var counter_x := _hall.get_counter_position().x
-	pan_to(counter_x)
+	var stand := _hall.get_counter_position() + COUNTER_STANDOFF
+	pan_to(stand.x)
 	_hall.swing_door()
 
 	var visitor: Customer = CUSTOMER_SCENE.instantiate()
-	_customers.add_child(visitor)
+	_hall.get_visitor_parent().add_child(visitor)
 	visitor.setup(customer)
+	visitor.fit_height(CUSTOMER_HEIGHT)
 	visitor.position = _hall.get_door_position()
 	_current_customer = visitor
-	await visitor.walk_to(counter_x)
+	await visitor.walk_to(stand)
 
 
 func dismiss_visitor(carried_book_id: String = "") -> void:
@@ -229,7 +244,7 @@ func dismiss_visitor(carried_book_id: String = "") -> void:
 	var visitor := _current_customer
 	_current_customer = null
 	visitor.carry_book(carried_book_id)
-	await visitor.walk_to(_hall.get_door_position().x)
+	await visitor.walk_to(_hall.get_door_position())
 	_hall.swing_door()
 	await get_tree().create_timer(0.25).timeout
 	visitor.queue_free()

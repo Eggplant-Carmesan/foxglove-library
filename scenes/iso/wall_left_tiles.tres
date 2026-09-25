@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" format=3 uid="uid://c2gddbvat5ap1"]
+
+[ext_resource type="Texture2D" uid="uid://dla3mf4ww56w" path="res://art/iso/structure/wall_back_left.png" id="1_1x8x3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7jdp"]
+texture = ExtResource("1_1x8x3")
+texture_region_size = Vector2i(129, 512)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 219)
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(256, 148)
+sources/2 = SubResource("TileSetAtlasSource_o7jdp")

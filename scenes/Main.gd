@@ -4,6 +4,10 @@ extends Node2D
 ## placeholders; they arrive in later build steps.
 
 const REACTION_HOLD := 1.5
+const PORTRAIT_BASE := Vector2i(1080, 1920)
+const LANDSCAPE_BASE := Vector2i(1920, 1080)
+
+var _landscape := false
 
 @onready var _library: Library = $Library
 @onready var _library_screen: LibraryScreen = %LibraryScreen
@@ -43,6 +47,18 @@ func _ready() -> void:
 	_journal_screen.gift_requested.connect(_gift_picker.open)
 	_gift_picker.gift_given.connect(_on_gift_given)
 	_on_tab_selected("Library")
+
+
+## L flips the window between the phone's portrait frame and a 16:9
+## landscape one, so the room can be judged against both while the art is
+## still being drawn. Prototype affordance; it goes when the art settles.
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_L:
+		_landscape = not _landscape
+		var base := LANDSCAPE_BASE if _landscape else PORTRAIT_BASE
+		var window := get_window()
+		window.content_scale_size = base
+		window.size = base * 2 / 3
 
 
 func _on_tab_selected(tab_name: String) -> void:

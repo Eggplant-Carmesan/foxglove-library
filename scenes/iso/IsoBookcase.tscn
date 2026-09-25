@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/iso/IsoBookcase.gd" id="1_script"]
+
+[node name="IsoBookcase" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Placeholder" type="Node2D" parent="."]
+
+[node name="Footprint" type="Polygon2D" parent="Placeholder"]
+color = Color(0.184314, 0.152941, 0.121569, 1)
+polygon = PackedVector2Array(0, -37, 128, 0, 0, 37, -128, 0)
+
+[node name="LeftFace" type="Polygon2D" parent="Placeholder"]
+color = Color(0.231373, 0.156863, 0.105882, 1)
+polygon = PackedVector2Array(-128, 0, 0, 37, 0, -243, -128, -280)
+
+[node name="RightFace" type="Polygon2D" parent="Placeholder"]
+color = Color(0.290196, 0.196078, 0.133333, 1)
+polygon = PackedVector2Array(0, 37, 128, 0, 128, -280, 0, -243)
+
+[node name="Plank1" type="Polygon2D" parent="Placeholder"]
+color = Color(0.431373, 0.294118, 0.2, 1)
+polygon = PackedVector2Array(-96, -46, 24, -115, 24, -127, -96, -58)
+
+[node name="Plank2" type="Polygon2D" parent="Placeholder"]
+color = Color(0.431373, 0.294118, 0.2, 1)
+polygon = PackedVector2Array(-96, -166, 24, -235, 24, -247, -96, -178)
+
+[node name="ArtSlot" type="Sprite2D" parent="."]
+
+[node name="Shelves" type="Node2D" parent="."]

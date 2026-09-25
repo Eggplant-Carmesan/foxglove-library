@@ -3,7 +3,6 @@ extends Node2D
 ## The left-hand zone. Boarded up behind a "For sale" archway until bought;
 ## once it's yours the boards fall away and the hearth is lit.
 
-const HALL_LEFT := -560.0
 const ZONE_WIDTH := 900.0
 
 @onready var _boards: Node2D = $Boards
@@ -16,7 +15,7 @@ func _ready() -> void:
 
 
 func get_content_bounds() -> Vector2:
-	return Vector2(position.x - 40.0, position.x + 900.0)
+	return Vector2(position.x - 40.0, position.x + ZONE_WIDTH)
 
 
 func get_decor_anchors() -> Array[Node]:

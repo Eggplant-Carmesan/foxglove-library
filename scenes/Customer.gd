@@ -5,6 +5,10 @@ extends Node2D
 ## tween along the floor. Real art drops into the ArtSlot sprite.
 
 const WALK_SPEED := 420.0
+## How tall the silhouette is drawn, before any fitting.
+const ART_HEIGHT := 420.0
+## Gap between the top of the head and the speech bubble, in screen pixels.
+const BUBBLE_GAP := 30.0
 
 @onready var _body: Node2D = $Body
 @onready var _silhouette: Polygon2D = $Body/Silhouette
@@ -44,11 +48,28 @@ func set_motion(motion: String) -> void:
 	_bob_tween.tween_property(_body, "position:y", 0.0, duration).set_trans(Tween.TRANS_SINE)
 
 
-func walk_to(target_x: float) -> void:
+## Shrinks the drawn body so a customer stands the right height in the
+## room, without shrinking their name or their speech bubble with it —
+## those are text, and text has to stay readable whatever the room's scale.
+func fit_height(target_height: float) -> void:
+	var factor := target_height / ART_HEIGHT
+	_body.scale = Vector2(factor, factor)
+	_name_label.position.y = 14.0 * factor
+	var bubble_height := _bubble.size.y if _bubble.size.y > 0.0 else 100.0
+	_bubble.position.y = -target_height - BUBBLE_GAP - bubble_height
+
+
+## Walks to a point on the floor. The whole position moves, not just x,
+## because on an isometric floor crossing the room changes both.
+##
+## Speed follows the node's own scale, so a customer sized to the room
+## covers it in the same time however big the room's art is.
+func walk_to(target: Vector2) -> void:
 	set_motion("walk")
-	var duration := maxf(0.25, absf(target_x - position.x) / WALK_SPEED)
+	var speed := WALK_SPEED * maxf(0.05, _body.scale.x)
+	var duration := maxf(0.25, position.distance_to(target) / speed)
 	var tween := create_tween()
-	tween.tween_property(self, "position:x", target_x, duration).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", target, duration).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	set_motion("idle")
 

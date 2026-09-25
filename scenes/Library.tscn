@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scenes/Library.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://scenes/zones/MainHall.tscn" id="2_hall"]
+[ext_resource type="PackedScene" path="res://scenes/zones/IsoHall.tscn" id="2_hall"]
 [ext_resource type="PackedScene" path="res://scenes/zones/ReadingNook.tscn" id="3_nook"]
 [ext_resource type="PackedScene" path="res://scenes/zones/RareAlcove.tscn" id="4_alcove"]
 
@@ -14,15 +14,13 @@ color = Color(1, 0.98, 0.92, 1)
 [node name="ReadingNook" parent="." instance=ExtResource("3_nook")]
 position = Vector2(-1460, 0)
 
-[node name="MainHall" parent="." instance=ExtResource("2_hall")]
+[node name="IsoHall" parent="." instance=ExtResource("2_hall")]
 
 [node name="RareAlcove" parent="." instance=ExtResource("4_alcove")]
 position = Vector2(1450, 0)
 
 [node name="DecorItems" type="Node2D" parent="."]
 
-[node name="Customers" type="Node2D" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(60, 520)
-zoom = Vector2(1.25, 1.25)
+position = Vector2(60, 160)
+zoom = Vector2(1.6, 1.6)

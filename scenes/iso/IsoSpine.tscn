@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/iso/IsoSpine.gd" id="1_script"]
+
+[node name="IsoSpine" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Placeholder" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 1)
+polygon = PackedVector2Array(0, 0, 26, -15, 26, -93, 0, -78)
+
+[node name="ArtSlot" type="Sprite2D" parent="."]
+
+[node name="Badge" type="Polygon2D" parent="."]
+color = Color(0.933333, 0.752941, 0.380392, 1)
+polygon = PackedVector2Array(0, -5, 5, 0, 0, 5, -5, 0)

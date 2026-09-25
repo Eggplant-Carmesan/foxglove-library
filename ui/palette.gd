@@ -1,19 +1,9 @@
 class_name Palette
 extends RefCounted
-## Central color palette. Referenced by the Theme resource and by scripts
-## that draw placeholder art (spines, decor, etc.) directly.
+## Colors that scripts pick at runtime. The Theme resource carries its own
+## copies as literals, so only what code actually reads lives here.
 
-const MOSS := Color("#1E2720")
-const MOSS_DEEP := Color("#141A15")
-const MOSS_SURFACE := Color("#2A362C")
-const PARCHMENT := Color("#F2E9D6")
-const PARCHMENT_CHIP := Color("#DCCFB3")
-const INK := Color("#2B241C")
-const INK_MUTED := Color("#5A4E3F")
 const MIST_TEXT := Color("#B9C2B0")
-const LAMPLIGHT := Color("#E0B156")
-const PLANK := Color("#6E4B33")
-const PLANK_SHADOW := Color("#4A3222")
 
 const SPINE_COLORS: Array[Color] = [
 	Color("#7A3E3A"),
