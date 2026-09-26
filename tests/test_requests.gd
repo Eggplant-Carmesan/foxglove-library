@@ -86,3 +86,20 @@ func test_loan_carries_extra_fields() -> void:
 	assert_eq(loan["bookId"], "dune")
 	assert_eq(state["shelf"].size(), 0)
 	assert_eq(state["loans"].size(), 1)
+
+
+## A library can fall to a bad reputation, and the regulars who wait for
+## none must still turn up — they are the only way back.
+func test_bad_reputation_still_lets_the_regulars_in() -> void:
+	var customers := {
+		"regular": { "unlockAtRep": 0 },
+		"later": { "unlockAtRep": 25 },
+	}
+	var unlocked := DayLogic.unlocked_customer_ids({ "reputation": -20 }, customers)
+	assert_eq(unlocked, ["regular"], "a regular waits for no reputation at all")
+
+
+func test_reputation_still_gates_the_later_visitors() -> void:
+	var customers := { "later": { "unlockAtRep": 25 } }
+	assert_eq(DayLogic.unlocked_customer_ids({ "reputation": 0 }, customers), [])
+	assert_eq(DayLogic.unlocked_customer_ids({ "reputation": 25 }, customers), ["later"])

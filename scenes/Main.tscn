@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" path="res://ui/DaySummary.tscn" id="10_summary"]
 [ext_resource type="PackedScene" path="res://ui/FurnishScreen.tscn" id="11_furnish"]
 [ext_resource type="PackedScene" path="res://ui/GiftPicker.tscn" id="12_gift"]
+[ext_resource type="PackedScene" path="res://ui/BookcaseView.tscn" id="13_casefront"]
 
 [node name="Main" type="Node2D" unique_id=290347624]
 script = ExtResource("1_script")
@@ -69,6 +70,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TabBar" parent="UI" unique_id=1071280124 instance=ExtResource("4_tabbar")]
+unique_name_in_owner = true
+
+[node name="Shelf" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="BookcaseView" parent="Shelf" instance=ExtResource("13_casefront")]
 unique_name_in_owner = true
 
 [node name="Sheets" type="CanvasLayer" parent="." unique_id=2032222364]

@@ -1,638 +1,638 @@
 [
   {
-    "id": "legends-and-lattes",
-    "title": "Legends & Lattes",
-    "author": "Travis Baldree",
-    "tags": [
-      "cozy",
-      "found-family",
-      "low-stakes",
-      "fae",
+	"id": "legends-and-lattes",
+	"title": "Legends & Lattes",
+	"author": "Travis Baldree",
+	"tags": [
+	  "cozy",
+	  "found-family",
+	  "low-stakes",
+	  "fae",
       "hopeful"
-    ],
-    "blurb": "An orc mercenary retires to open a coffee shop, and nothing terrible happens for once.",
-    "price": 18,
-    "popularity": 5
+	],
+	"blurb": "An orc mercenary retires to open a coffee shop, and nothing terrible happens for once.",
+	"price": 18,
+	"popularity": 5
   },
   {
-    "id": "the-house-in-the-cerulean-sea",
-    "title": "The House in the Cerulean Sea",
-    "author": "TJ Klune",
-    "tags": [
-      "cozy",
-      "found-family",
-      "fae",
-      "hopeful",
+	"id": "the-house-in-the-cerulean-sea",
+	"title": "The House in the Cerulean Sea",
+	"author": "TJ Klune",
+	"tags": [
+	  "cozy",
+	  "found-family",
+	  "fae",
+	  "hopeful",
       "funny"
-    ],
-    "blurb": "A caseworker falls for a house full of magical children he was sent to inspect.",
-    "price": 19,
-    "popularity": 5
+	],
+	"blurb": "A caseworker falls for a house full of magical children he was sent to inspect.",
+	"price": 19,
+	"popularity": 5
   },
   {
-    "id": "pride-and-prejudice",
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "tags": [
-      "romance",
-      "slow-burn",
-      "literary",
-      "historical",
+	"id": "pride-and-prejudice",
+	"title": "Pride and Prejudice",
+	"author": "Jane Austen",
+	"tags": [
+	  "romance",
+	  "slow-burn",
+	  "literary",
+	  "historical",
       "standalone"
-    ],
-    "blurb": "Two proud people slowly figure out they were wrong about each other.",
-    "price": 14,
-    "popularity": 4
+	],
+	"blurb": "Two proud people slowly figure out they were wrong about each other.",
+	"price": 14,
+	"popularity": 4
   },
   {
-    "id": "jane-eyre",
-    "title": "Jane Eyre",
-    "author": "Charlotte Bronte",
-    "tags": [
-      "gothic",
-      "romance",
-      "literary",
-      "historical",
-      "standalone",
+	"id": "jane-eyre",
+	"title": "Jane Eyre",
+	"author": "Charlotte Bronte",
+	"tags": [
+	  "gothic",
+	  "romance",
+	  "literary",
+	  "historical",
+	  "standalone",
       "long"
-    ],
-    "blurb": "A governess with a spine of iron falls for her brooding, secretive employer.",
-    "price": 16,
-    "popularity": 3
+	],
+	"blurb": "A governess with a spine of iron falls for her brooding, secretive employer.",
+	"price": 16,
+	"popularity": 3
   },
   {
-    "id": "dracula",
-    "title": "Dracula",
-    "author": "Bram Stoker",
-    "tags": [
-      "gothic",
-      "dark",
-      "historical",
-      "long",
+	"id": "dracula",
+	"title": "Dracula",
+	"author": "Bram Stoker",
+	"tags": [
+	  "gothic",
+	  "dark",
+	  "historical",
+	  "long",
       "standalone"
-    ],
-    "blurb": "A Transylvanian count turns out to be an extremely bad houseguest.",
-    "price": 15,
-    "popularity": 3
+	],
+	"blurb": "A Transylvanian count turns out to be an extremely bad houseguest.",
+	"price": 15,
+	"popularity": 3
   },
   {
-    "id": "the-hobbit",
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "tags": [
-      "adventure",
-      "fae",
-      "hopeful",
+	"id": "the-hobbit",
+	"title": "The Hobbit",
+	"author": "J.R.R. Tolkien",
+	"tags": [
+	  "adventure",
+	  "fae",
+	  "hopeful",
       "standalone"
-    ],
-    "blurb": "A homebody hobbit is talked into stealing from a dragon.",
-    "price": 17,
-    "popularity": 5
+	],
+	"blurb": "A homebody hobbit is talked into stealing from a dragon.",
+	"price": 17,
+	"popularity": 5
   },
   {
-    "id": "the-fellowship-of-the-ring",
-    "title": "The Fellowship of the Ring",
-    "author": "J.R.R. Tolkien",
-    "tags": [
-      "adventure",
-      "fae",
-      "war",
-      "series",
+	"id": "the-fellowship-of-the-ring",
+	"title": "The Fellowship of the Ring",
+	"author": "J.R.R. Tolkien",
+	"tags": [
+	  "adventure",
+	  "fae",
+	  "war",
+	  "series",
       "long"
-    ],
-    "blurb": "A small group sets out to destroy a ring that everyone else wants very badly.",
-    "price": 20,
-    "popularity": 4
+	],
+	"blurb": "A small group sets out to destroy a ring that everyone else wants very badly.",
+	"price": 20,
+	"popularity": 4
   },
   {
-    "id": "a-court-of-thorns-and-roses",
-    "title": "A Court of Thorns and Roses",
-    "author": "Sarah J. Maas",
-    "tags": [
-      "fae",
-      "romance",
-      "enemies-to-lovers",
-      "series",
+	"id": "a-court-of-thorns-and-roses",
+	"title": "A Court of Thorns and Roses",
+	"author": "Sarah J. Maas",
+	"tags": [
+	  "fae",
+	  "romance",
+	  "enemies-to-lovers",
+	  "series",
       "dark"
-    ],
-    "blurb": "A huntress is dragged into a fae court and finds the politics more dangerous than the beasts.",
-    "price": 21,
-    "popularity": 5
+	],
+	"blurb": "A huntress is dragged into a fae court and finds the politics more dangerous than the beasts.",
+	"price": 21,
+	"popularity": 5
   },
   {
-    "id": "the-cruel-prince",
-    "title": "The Cruel Prince",
-    "author": "Holly Black",
-    "tags": [
-      "fae",
-      "dark",
-      "enemies-to-lovers",
+	"id": "the-cruel-prince",
+	"title": "The Cruel Prince",
+	"author": "Holly Black",
+	"tags": [
+	  "fae",
+	  "dark",
+	  "enemies-to-lovers",
       "series"
-    ],
-    "blurb": "A mortal girl claws her way up a faerie court that would rather see her dead.",
-    "price": 19,
-    "popularity": 4
+	],
+	"blurb": "A mortal girl claws her way up a faerie court that would rather see her dead.",
+	"price": 19,
+	"popularity": 4
   },
   {
-    "id": "howls-moving-castle",
-    "title": "Howl's Moving Castle",
-    "author": "Diana Wynne Jones",
-    "tags": [
-      "fae",
-      "cozy",
-      "funny",
-      "hopeful",
+	"id": "howls-moving-castle",
+	"title": "Howl's Moving Castle",
+	"author": "Diana Wynne Jones",
+	"tags": [
+	  "fae",
+	  "cozy",
+	  "funny",
+	  "hopeful",
       "standalone"
-    ],
-    "blurb": "A cursed hat-maker moves in with a vain wizard and his walking castle.",
-    "price": 15,
-    "popularity": 4
+	],
+	"blurb": "A cursed hat-maker moves in with a vain wizard and his walking castle.",
+	"price": 15,
+	"popularity": 4
   },
   {
-    "id": "a-wizard-of-earthsea",
-    "title": "A Wizard of Earthsea",
-    "author": "Ursula K. Le Guin",
-    "tags": [
-      "magic-school",
-      "adventure",
-      "literary",
+	"id": "a-wizard-of-earthsea",
+	"title": "A Wizard of Earthsea",
+	"author": "Ursula K. Le Guin",
+	"tags": [
+	  "magic-school",
+	  "adventure",
+	  "literary",
       "series"
-    ],
-    "blurb": "A gifted, arrogant boy unleashes a shadow that only he can put back.",
-    "price": 15,
-    "popularity": 3
+	],
+	"blurb": "A gifted, arrogant boy unleashes a shadow that only he can put back.",
+	"price": 15,
+	"popularity": 3
   },
   {
-    "id": "harry-potter-and-the-sorcerers-stone",
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "author": "J.K. Rowling",
-    "tags": [
-      "magic-school",
-      "adventure",
-      "found-family",
+	"id": "harry-potter-and-the-sorcerers-stone",
+	"title": "Harry Potter and the Sorcerer's Stone",
+	"author": "J.K. Rowling",
+	"tags": [
+	  "magic-school",
+	  "adventure",
+	  "found-family",
       "series"
-    ],
-    "blurb": "An orphan learns he's famous in a world of wands, and makes two lifelong friends.",
-    "price": 18,
-    "popularity": 5
+	],
+	"blurb": "An orphan learns he's famous in a world of wands, and makes two lifelong friends.",
+	"price": 18,
+	"popularity": 5
   },
   {
-    "id": "the-secret-history",
-    "title": "The Secret History",
-    "author": "Donna Tartt",
-    "tags": [
-      "dark",
-      "literary",
-      "mystery",
-      "long",
+	"id": "the-secret-history",
+	"title": "The Secret History",
+	"author": "Donna Tartt",
+	"tags": [
+	  "dark",
+	  "literary",
+	  "mystery",
+	  "long",
       "standalone"
-    ],
-    "blurb": "A tight circle of classics students commits a murder, then can't stop unraveling.",
-    "price": 17,
-    "popularity": 4
+	],
+	"blurb": "A tight circle of classics students commits a murder, then can't stop unraveling.",
+	"price": 17,
+	"popularity": 4
   },
   {
-    "id": "gone-girl",
-    "title": "Gone Girl",
-    "author": "Gillian Flynn",
-    "tags": [
-      "dark",
-      "mystery",
+	"id": "gone-girl",
+	"title": "Gone Girl",
+	"author": "Gillian Flynn",
+	"tags": [
+	  "dark",
+	  "mystery",
       "standalone"
-    ],
-    "blurb": "A wife goes missing on her anniversary, and her husband's story doesn't add up.",
-    "price": 15,
-    "popularity": 4
+	],
+	"blurb": "A wife goes missing on her anniversary, and her husband's story doesn't add up.",
+	"price": 15,
+	"popularity": 4
   },
   {
-    "id": "the-murder-of-roger-ackroyd",
-    "title": "The Murder of Roger Ackroyd",
-    "author": "Agatha Christie",
-    "tags": [
-      "mystery",
-      "standalone",
+	"id": "the-murder-of-roger-ackroyd",
+	"title": "The Murder of Roger Ackroyd",
+	"author": "Agatha Christie",
+	"tags": [
+	  "mystery",
+	  "standalone",
       "historical"
-    ],
-    "blurb": "Poirot investigates a killing in a quiet village, and the twist still gets people.",
-    "price": 13,
-    "popularity": 3
+	],
+	"blurb": "Poirot investigates a killing in a quiet village, and the twist still gets people.",
+	"price": 13,
+	"popularity": 3
   },
   {
-    "id": "the-name-of-the-wind",
-    "title": "The Name of the Wind",
-    "author": "Patrick Rothfuss",
-    "tags": [
-      "adventure",
-      "literary",
-      "series",
+	"id": "the-name-of-the-wind",
+	"title": "The Name of the Wind",
+	"author": "Patrick Rothfuss",
+	"tags": [
+	  "adventure",
+	  "literary",
+	  "series",
       "long"
-    ],
-    "blurb": "A legendary figure tells his own life story to a chronicler, one long night at a time.",
-    "price": 20,
-    "popularity": 4
+	],
+	"blurb": "A legendary figure tells his own life story to a chronicler, one long night at a time.",
+	"price": 20,
+	"popularity": 4
   },
   {
-    "id": "mistborn-the-final-empire",
-    "title": "Mistborn: The Final Empire",
-    "author": "Brandon Sanderson",
-    "tags": [
-      "adventure",
-      "dark",
-      "series",
+	"id": "mistborn-the-final-empire",
+	"title": "Mistborn: The Final Empire",
+	"author": "Brandon Sanderson",
+	"tags": [
+	  "adventure",
+	  "dark",
+	  "series",
       "long"
-    ],
-    "blurb": "A street urchin with a rare power is recruited to overthrow an immortal emperor.",
-    "price": 20,
-    "popularity": 4
+	],
+	"blurb": "A street urchin with a rare power is recruited to overthrow an immortal emperor.",
+	"price": 20,
+	"popularity": 4
   },
   {
-    "id": "the-martian",
-    "title": "The Martian",
-    "author": "Andy Weir",
-    "tags": [
-      "sci-fi",
-      "funny",
-      "standalone",
+	"id": "the-martian",
+	"title": "The Martian",
+	"author": "Andy Weir",
+	"tags": [
+	  "sci-fi",
+	  "funny",
+	  "standalone",
       "adventure"
-    ],
-    "blurb": "An astronaut stranded on Mars science-experiments his way toward not dying.",
-    "price": 16,
-    "popularity": 5
+	],
+	"blurb": "An astronaut stranded on Mars science-experiments his way toward not dying.",
+	"price": 16,
+	"popularity": 5
   },
   {
-    "id": "project-hail-mary",
-    "title": "Project Hail Mary",
-    "author": "Andy Weir",
-    "tags": [
-      "sci-fi",
-      "adventure",
-      "standalone",
+	"id": "project-hail-mary",
+	"title": "Project Hail Mary",
+	"author": "Andy Weir",
+	"tags": [
+	  "sci-fi",
+	  "adventure",
+	  "standalone",
       "hopeful"
-    ],
-    "blurb": "A lone astronaut wakes with no memory and the fate of Earth resting on him.",
-    "price": 18,
-    "popularity": 5
+	],
+	"blurb": "A lone astronaut wakes with no memory and the fate of Earth resting on him.",
+	"price": 18,
+	"popularity": 5
   },
   {
-    "id": "dune",
-    "title": "Dune",
-    "author": "Frank Herbert",
-    "tags": [
-      "sci-fi",
-      "war",
-      "series",
+	"id": "dune",
+	"title": "Dune",
+	"author": "Frank Herbert",
+	"tags": [
+	  "sci-fi",
+	  "war",
+	  "series",
       "long"
-    ],
-    "blurb": "A duke's son is thrown into desert politics, prophecy and a very valuable spice.",
-    "price": 19,
-    "popularity": 4
+	],
+	"blurb": "A duke's son is thrown into desert politics, prophecy and a very valuable spice.",
+	"price": 19,
+	"popularity": 4
   },
   {
-    "id": "enders-game",
-    "title": "Ender's Game",
-    "author": "Orson Scott Card",
-    "tags": [
-      "sci-fi",
-      "war",
-      "short",
+	"id": "enders-game",
+	"title": "Ender's Game",
+	"author": "Orson Scott Card",
+	"tags": [
+	  "sci-fi",
+	  "war",
+	  "short",
       "standalone"
-    ],
-    "blurb": "A gifted child is trained for a war he doesn't fully understand he's fighting.",
-    "price": 14,
-    "popularity": 4
+	],
+	"blurb": "A gifted child is trained for a war he doesn't fully understand he's fighting.",
+	"price": 14,
+	"popularity": 4
   },
   {
-    "id": "the-left-hand-of-darkness",
-    "title": "The Left Hand of Darkness",
-    "author": "Ursula K. Le Guin",
-    "tags": [
-      "sci-fi",
-      "literary",
+	"id": "the-left-hand-of-darkness",
+	"title": "The Left Hand of Darkness",
+	"author": "Ursula K. Le Guin",
+	"tags": [
+	  "sci-fi",
+	  "literary",
       "standalone"
-    ],
-    "blurb": "An envoy on an icebound planet learns to see past his own assumptions about gender and trust.",
-    "price": 15,
-    "popularity": 3
+	],
+	"blurb": "An envoy on an icebound planet learns to see past his own assumptions about gender and trust.",
+	"price": 15,
+	"popularity": 3
   },
   {
-    "id": "good-omens",
-    "title": "Good Omens",
-    "author": "Terry Pratchett and Neil Gaiman",
-    "tags": [
-      "funny",
-      "fae",
-      "hopeful",
+	"id": "good-omens",
+	"title": "Good Omens",
+	"author": "Terry Pratchett and Neil Gaiman",
+	"tags": [
+	  "funny",
+	  "fae",
+	  "hopeful",
       "standalone"
-    ],
-    "blurb": "An angel and a demon team up to stop the apocalypse, mostly out of habit.",
-    "price": 16,
-    "popularity": 5
+	],
+	"blurb": "An angel and a demon team up to stop the apocalypse, mostly out of habit.",
+	"price": 16,
+	"popularity": 5
   },
   {
-    "id": "the-hitchhikers-guide-to-the-galaxy",
-    "title": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adams",
-    "tags": [
-      "sci-fi",
-      "funny",
-      "short",
+	"id": "the-hitchhikers-guide-to-the-galaxy",
+	"title": "The Hitchhiker's Guide to the Galaxy",
+	"author": "Douglas Adams",
+	"tags": [
+	  "sci-fi",
+	  "funny",
+	  "short",
       "series"
-    ],
-    "blurb": "Earth is demolished for a hyperspace bypass, and it only gets stranger from there.",
-    "price": 13,
-    "popularity": 5
+	],
+	"blurb": "Earth is demolished for a hyperspace bypass, and it only gets stranger from there.",
+	"price": 13,
+	"popularity": 5
   },
   {
-    "id": "bridget-joness-diary",
-    "title": "Bridget Jones's Diary",
-    "author": "Helen Fielding",
-    "tags": [
-      "romance",
-      "funny",
+	"id": "bridget-joness-diary",
+	"title": "Bridget Jones's Diary",
+	"author": "Helen Fielding",
+	"tags": [
+	  "romance",
+	  "funny",
       "standalone"
-    ],
-    "blurb": "A year of resolutions, disasters and two very different men.",
-    "price": 12,
-    "popularity": 3
+	],
+	"blurb": "A year of resolutions, disasters and two very different men.",
+	"price": 12,
+	"popularity": 3
   },
   {
-    "id": "the-seven-husbands-of-evelyn-hugo",
-    "title": "The Seven Husbands of Evelyn Hugo",
-    "author": "Taylor Jenkins Reid",
-    "tags": [
-      "romance",
-      "sad",
-      "literary",
+	"id": "the-seven-husbands-of-evelyn-hugo",
+	"title": "The Seven Husbands of Evelyn Hugo",
+	"author": "Taylor Jenkins Reid",
+	"tags": [
+	  "romance",
+	  "sad",
+	  "literary",
       "standalone"
-    ],
-    "blurb": "A reclusive film icon finally tells a reporter the truth about her seven marriages.",
-    "price": 17,
-    "popularity": 5
+	],
+	"blurb": "A reclusive film icon finally tells a reporter the truth about her seven marriages.",
+	"price": 17,
+	"popularity": 5
   },
   {
-    "id": "the-song-of-achilles",
-    "title": "The Song of Achilles",
-    "author": "Madeline Miller",
-    "tags": [
-      "romance",
-      "sad",
-      "war",
-      "literary",
+	"id": "the-song-of-achilles",
+	"title": "The Song of Achilles",
+	"author": "Madeline Miller",
+	"tags": [
+	  "romance",
+	  "sad",
+	  "war",
+	  "literary",
       "standalone"
-    ],
-    "blurb": "A quiet prince and the greatest warrior of his age grow up, and go to war, together.",
-    "price": 17,
-    "popularity": 5
+	],
+	"blurb": "A quiet prince and the greatest warrior of his age grow up, and go to war, together.",
+	"price": 17,
+	"popularity": 5
   },
   {
-    "id": "circe",
-    "title": "Circe",
-    "author": "Madeline Miller",
-    "tags": [
-      "fae",
-      "literary",
-      "standalone",
+	"id": "circe",
+	"title": "Circe",
+	"author": "Madeline Miller",
+	"tags": [
+	  "fae",
+	  "literary",
+	  "standalone",
       "hopeful"
-    ],
-    "blurb": "A minor goddess is exiled to an island and slowly becomes someone to fear and admire.",
-    "price": 17,
-    "popularity": 4
+	],
+	"blurb": "A minor goddess is exiled to an island and slowly becomes someone to fear and admire.",
+	"price": 17,
+	"popularity": 4
   },
   {
-    "id": "all-the-light-we-cannot-see",
-    "title": "All the Light We Cannot See",
-    "author": "Anthony Doerr",
-    "tags": [
-      "war",
-      "historical",
-      "literary",
-      "sad",
+	"id": "all-the-light-we-cannot-see",
+	"title": "All the Light We Cannot See",
+	"author": "Anthony Doerr",
+	"tags": [
+	  "war",
+	  "historical",
+	  "literary",
+	  "sad",
       "long"
-    ],
-    "blurb": "A blind French girl and a German boy's paths edge closer across an occupied coastline.",
-    "price": 18,
-    "popularity": 4
+	],
+	"blurb": "A blind French girl and a German boy's paths edge closer across an occupied coastline.",
+	"price": 18,
+	"popularity": 4
   },
   {
-    "id": "the-book-thief",
-    "title": "The Book Thief",
-    "author": "Markus Zusak",
-    "tags": [
-      "war",
-      "historical",
-      "sad",
-      "hopeful",
+	"id": "the-book-thief",
+	"title": "The Book Thief",
+	"author": "Markus Zusak",
+	"tags": [
+	  "war",
+	  "historical",
+	  "sad",
+	  "hopeful",
       "long"
-    ],
-    "blurb": "Death himself narrates a girl's habit of stealing books in Nazi Germany.",
-    "price": 16,
-    "popularity": 5
+	],
+	"blurb": "Death himself narrates a girl's habit of stealing books in Nazi Germany.",
+	"price": 16,
+	"popularity": 5
   },
   {
-    "id": "the-nightingale",
-    "title": "The Nightingale",
-    "author": "Kristin Hannah",
-    "tags": [
-      "war",
-      "historical",
-      "sad",
-      "standalone",
+	"id": "the-nightingale",
+	"title": "The Nightingale",
+	"author": "Kristin Hannah",
+	"tags": [
+	  "war",
+	  "historical",
+	  "sad",
+	  "standalone",
       "long"
-    ],
-    "blurb": "Two sisters choose very different kinds of courage under occupation.",
-    "price": 17,
-    "popularity": 4
+	],
+	"blurb": "Two sisters choose very different kinds of courage under occupation.",
+	"price": 17,
+	"popularity": 4
   },
   {
-    "id": "a-man-called-ove",
-    "title": "A Man Called Ove",
-    "author": "Fredrik Backman",
-    "tags": [
-      "cozy",
-      "funny",
-      "sad",
-      "hopeful",
-      "found-family",
+	"id": "a-man-called-ove",
+	"title": "A Man Called Ove",
+	"author": "Fredrik Backman",
+	"tags": [
+	  "cozy",
+	  "funny",
+	  "sad",
+	  "hopeful",
+	  "found-family",
       "standalone"
-    ],
-    "blurb": "A furious old grump gets slowly adopted by the neighbors he can't get rid of.",
-    "price": 15,
-    "popularity": 5
+	],
+	"blurb": "A furious old grump gets slowly adopted by the neighbors he can't get rid of.",
+	"price": 15,
+	"popularity": 5
   },
   {
-    "id": "the-unhoneymooners",
-    "title": "The Unhoneymooners",
-    "author": "Christina Lauren",
-    "tags": [
-      "romance",
-      "funny",
-      "enemies-to-lovers",
+	"id": "the-unhoneymooners",
+	"title": "The Unhoneymooners",
+	"author": "Christina Lauren",
+	"tags": [
+	  "romance",
+	  "funny",
+	  "enemies-to-lovers",
       "standalone"
-    ],
-    "blurb": "A bride's sister and groom's brother are stuck sharing a honeymoon they didn't book.",
-    "price": 13,
-    "popularity": 3
+	],
+	"blurb": "A bride's sister and groom's brother are stuck sharing a honeymoon they didn't book.",
+	"price": 13,
+	"popularity": 3
   },
   {
-    "id": "beach-read",
-    "title": "Beach Read",
-    "author": "Emily Henry",
-    "tags": [
-      "romance",
-      "funny",
-      "slow-burn",
+	"id": "beach-read",
+	"title": "Beach Read",
+	"author": "Emily Henry",
+	"tags": [
+	  "romance",
+	  "funny",
+	  "slow-burn",
       "standalone"
-    ],
-    "blurb": "Two rival writers swap genres for a summer and start swapping feelings too.",
-    "price": 14,
-    "popularity": 4
+	],
+	"blurb": "Two rival writers swap genres for a summer and start swapping feelings too.",
+	"price": 14,
+	"popularity": 4
   },
   {
-    "id": "red-white-and-royal-blue",
-    "title": "Red, White & Royal Blue",
-    "author": "Casey McQuiston",
-    "tags": [
-      "romance",
-      "funny",
-      "hopeful",
+	"id": "red-white-and-royal-blue",
+	"title": "Red, White & Royal Blue",
+	"author": "Casey McQuiston",
+	"tags": [
+	  "romance",
+	  "funny",
+	  "hopeful",
       "standalone"
-    ],
-    "blurb": "The First Son and a prince stage a fake friendship that turns real fast.",
-    "price": 14,
-    "popularity": 4
+	],
+	"blurb": "The First Son and a prince stage a fake friendship that turns real fast.",
+	"price": 14,
+	"popularity": 4
   },
   {
-    "id": "piranesi",
-    "title": "Piranesi",
-    "author": "Susanna Clarke",
-    "tags": [
-      "literary",
-      "mystery",
-      "standalone",
+	"id": "piranesi",
+	"title": "Piranesi",
+	"author": "Susanna Clarke",
+	"tags": [
+	  "literary",
+	  "mystery",
+	  "standalone",
       "short"
-    ],
-    "blurb": "A man living alone in an endless, flooding house starts to doubt his own diary.",
-    "price": 15,
-    "popularity": 3
+	],
+	"blurb": "A man living alone in an endless, flooding house starts to doubt his own diary.",
+	"price": 15,
+	"popularity": 3
   },
   {
-    "id": "the-night-circus",
-    "title": "The Night Circus",
-    "author": "Erin Morgenstern",
-    "tags": [
-      "romance",
-      "slow-burn",
-      "fae",
-      "gothic",
+	"id": "the-night-circus",
+	"title": "The Night Circus",
+	"author": "Erin Morgenstern",
+	"tags": [
+	  "romance",
+	  "slow-burn",
+	  "fae",
+	  "gothic",
       "standalone"
-    ],
-    "blurb": "Two young magicians are bound in a duel neither of them agreed to, inside a circus that only opens at night.",
-    "price": 16,
-    "popularity": 4
+	],
+	"blurb": "Two young magicians are bound in a duel neither of them agreed to, inside a circus that only opens at night.",
+	"price": 16,
+	"popularity": 4
   },
   {
-    "id": "uprooted",
-    "title": "Uprooted",
-    "author": "Naomi Novik",
-    "tags": [
-      "fae",
-      "romance",
-      "adventure",
-      "dark",
+	"id": "uprooted",
+	"title": "Uprooted",
+	"author": "Naomi Novik",
+	"tags": [
+	  "fae",
+	  "romance",
+	  "adventure",
+	  "dark",
       "standalone"
-    ],
-    "blurb": "A village girl is taken by a reclusive wizard to pay off a debt neither wanted.",
-    "price": 16,
-    "popularity": 4
+	],
+	"blurb": "A village girl is taken by a reclusive wizard to pay off a debt neither wanted.",
+	"price": 16,
+	"popularity": 4
   },
   {
-    "id": "the-graveyard-book",
-    "title": "The Graveyard Book",
-    "author": "Neil Gaiman",
-    "tags": [
-      "dark",
-      "found-family",
-      "hopeful",
-      "short",
+	"id": "the-graveyard-book",
+	"title": "The Graveyard Book",
+	"author": "Neil Gaiman",
+	"tags": [
+	  "dark",
+	  "found-family",
+	  "hopeful",
+	  "short",
       "standalone"
-    ],
-    "blurb": "A toddler is raised by ghosts after his family is murdered, and it's somehow tender.",
-    "price": 13,
-    "popularity": 3
+	],
+	"blurb": "A toddler is raised by ghosts after his family is murdered, and it's somehow tender.",
+	"price": 13,
+	"popularity": 3
   },
   {
-    "id": "anne-of-green-gables",
-    "title": "Anne of Green Gables",
-    "author": "L.M. Montgomery",
-    "tags": [
-      "cozy",
-      "found-family",
-      "hopeful",
-      "historical",
+	"id": "anne-of-green-gables",
+	"title": "Anne of Green Gables",
+	"author": "L.M. Montgomery",
+	"tags": [
+	  "cozy",
+	  "found-family",
+	  "hopeful",
+	  "historical",
       "series"
-    ],
-    "blurb": "An elderly siblings' mistaken orphan turns out to be exactly the chaos they needed.",
-    "price": 12,
-    "popularity": 4
+	],
+	"blurb": "An elderly siblings' mistaken orphan turns out to be exactly the chaos they needed.",
+	"price": 12,
+	"popularity": 4
   },
   {
-    "id": "the-voynich-hours",
-    "title": "The Voynich Hours",
-    "author": "Unknown",
-    "tags": [
-      "mystery",
-      "historical",
-      "literary",
+	"id": "the-voynich-hours",
+	"title": "The Voynich Hours",
+	"author": "Unknown",
+	"tags": [
+	  "mystery",
+	  "historical",
+	  "literary",
       "gothic"
-    ],
-    "blurb": "An illuminated manuscript nobody has ever finished translating.",
-    "price": 55,
-    "popularity": 2,
-    "rare": true
+	],
+	"blurb": "An illuminated manuscript nobody has ever finished translating.",
+	"price": 55,
+	"popularity": 2,
+	"rare": true
   },
   {
-    "id": "a-bestiary-of-small-gods",
-    "title": "A Bestiary of Small Gods",
-    "author": "Perrin Ash",
-    "tags": [
-      "fae",
-      "literary",
-      "standalone",
+	"id": "a-bestiary-of-small-gods",
+	"title": "A Bestiary of Small Gods",
+	"author": "Perrin Ash",
+	"tags": [
+	  "fae",
+	  "literary",
+	  "standalone",
       "dark"
-    ],
-    "blurb": "Field notes on the minor deities that live in hedges and doorframes.",
-    "price": 48,
-    "popularity": 2,
-    "rare": true
+	],
+	"blurb": "Field notes on the minor deities that live in hedges and doorframes.",
+	"price": 48,
+	"popularity": 2,
+	"rare": true
   },
   {
-    "id": "letters-to-the-drowned-city",
-    "title": "Letters to the Drowned City",
-    "author": "Ilse Marren",
-    "tags": [
-      "sad",
-      "literary",
-      "historical",
+	"id": "letters-to-the-drowned-city",
+	"title": "Letters to the Drowned City",
+	"author": "Ilse Marren",
+	"tags": [
+	  "sad",
+	  "literary",
+	  "historical",
       "standalone"
-    ],
-    "blurb": "Correspondence with a city that sank before any of it was delivered.",
-    "price": 52,
-    "popularity": 2,
-    "rare": true
+	],
+	"blurb": "Correspondence with a city that sank before any of it was delivered.",
+	"price": 52,
+	"popularity": 2,
+	"rare": true
   },
   {
-    "id": "the-cartographers-apology",
-    "title": "The Cartographer's Apology",
-    "author": "Beade Holloway",
-    "tags": [
-      "adventure",
-      "literary",
-      "mystery",
+	"id": "the-cartographers-apology",
+	"title": "The Cartographer's Apology",
+	"author": "Beade Holloway",
+	"tags": [
+	  "adventure",
+	  "literary",
+	  "mystery",
       "standalone"
-    ],
-    "blurb": "A mapmaker recants every map he ever drew, one country at a time.",
-    "price": 44,
-    "popularity": 3,
-    "rare": true
+	],
+	"blurb": "A mapmaker recants every map he ever drew, one country at a time.",
+	"price": 44,
+	"popularity": 3,
+	"rare": true
   }
 ]

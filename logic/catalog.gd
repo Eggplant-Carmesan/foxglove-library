@@ -14,7 +14,7 @@ static func owned_counts(state: Dictionary) -> Dictionary:
 	for loan in state.get("loans", []):
 		var loan_id: String = loan.get("bookId", "")
 		counts[loan_id] = int(counts.get(loan_id, 0)) + 1
-	for visit in state.get("queue", []):
+	for visit in state.get("queue", []) + state.get("pendingArrivals", []):
 		if visit.get("kind") == "return":
 			var due_id: String = visit.get("loan", {}).get("bookId", "")
 			counts[due_id] = int(counts.get(due_id, 0)) + 1

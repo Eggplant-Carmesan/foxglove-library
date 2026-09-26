@@ -8,7 +8,6 @@ extends RefCounted
 const STARTING_ACORNS := 140
 const STARTING_REPUTATION := 0
 const STARTING_SHELF_BOOK_COUNT := 30
-const STARTING_UNLOCKED_CUSTOMER_COUNT := 4
 
 # --- Shelf / bookcases ---
 const BASE_SHELF_CAPACITY := 40
@@ -18,17 +17,18 @@ const BOOKCASE_BASE_COST := 60
 const BOOKCASE_COST_MULTIPLIER := 1.5
 
 # --- Day loop ---
-const QUEUE_SIZE_MIN := 3
-const QUEUE_SIZE_MAX := 4
+## How many visitors a day brings. They don't all turn up at once: they
+## come through the door over the course of the day.
+const DAY_VISITS_MIN := 5
+const DAY_VISITS_MAX := 7
+const FIRST_ARRIVAL_DELAY := 2.0
+const ARRIVAL_INTERVAL := 15.0
 const LOAN_RETURN_DAYS_MIN := 1
 const LOAN_RETURN_DAYS_MAX := 3
 const QUESTIONS_PER_REQUEST := 1
 const DAILY_INCOME := 10
 const DUSTY_DAYS_THRESHOLD := 7
 const WEED_REFUND := 5
-
-# --- Customer unlocks ---
-const UNLOCK_REPUTATIONS: Array[int] = [10, 25, 45]
 
 # --- Matching (score_match) ---
 const MATCH_WANTS_POINTS := 3

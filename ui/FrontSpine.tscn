@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/FrontSpine.gd" id="1_script"]
+
+[node name="FrontSpine" type="TextureButton"]
+focus_mode = 0
+script = ExtResource("1_script")
+
+[node name="Badge" type="ColorRect" parent="."]
+visible = false
+mouse_filter = 2
+color = Color(0.933333, 0.752941, 0.380392, 1)
+
+[node name="Title" type="Label" parent="."]
+mouse_filter = 2
+theme_type_variation = &"SpineTitle"
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3

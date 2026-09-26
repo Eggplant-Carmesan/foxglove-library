@@ -1,0 +1,165 @@
+[gd_scene format=4 uid="uid://d2hrulfxie70q"]
+
+[ext_resource type="Script" uid="uid://dvbb48cgav2cs" path="res://scenes/zones/IsoHall.gd" id="1_hall"]
+[ext_resource type="TileSet" uid="uid://b60hnkxttfmv" path="res://scenes/iso/floor_tiles.tres" id="2_floor_tiles"]
+[ext_resource type="PackedScene" path="res://scenes/iso/IsoBookcase.tscn" id="3_case"]
+[ext_resource type="Texture2D" uid="uid://cbhtmgvuceib1" path="res://art/iso/structure/bookcase_right.png" id="4_caseart"]
+[ext_resource type="Texture2D" uid="uid://dtupmpnbp727d" path="res://art/iso/books/spine_a.png" id="5_spine"]
+[ext_resource type="Texture2D" uid="uid://f5t2outmq7wv" path="res://art/iso/structure/bookcase_left.png" id="6_caseleft"]
+[ext_resource type="TileSet" uid="uid://cgkqm16o5njgk" path="res://scenes/iso/wall_right_tiles.tres" id="7_wallr_tiles"]
+[ext_resource type="TileSet" uid="uid://c2gddbvat5ap1" path="res://scenes/iso/wall_left_tiles.tres" id="8_walll_tiles"]
+
+[sub_resource type="Gradient" id="Gradient_dot"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dot"]
+gradient = SubResource("Gradient_dot")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chime"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 18.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -40, 0)
+scale_min = 0.3
+scale_max = 0.8
+
+[node name="IsoHall" type="Node2D" unique_id=21675627]
+script = ExtResource("1_hall")
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=837275968]
+position = Vector2(-64, -37)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAA=")
+tile_set = ExtResource("2_floor_tiles")
+
+[node name="World" type="Node2D" parent="." unique_id=1767089800]
+y_sort_enabled = true
+
+[node name="WallBackRight" type="TileMapLayer" parent="World" unique_id=1134354793]
+y_sort_enabled = true
+position = Vector2(-32, -55.5)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("7_wallr_tiles")
+
+[node name="WallBackLeft" type="TileMapLayer" parent="World" unique_id=650818361]
+y_sort_enabled = true
+position = Vector2(-96, -55.5)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAA=")
+tile_set = ExtResource("8_walll_tiles")
+
+[node name="Markers" type="Node2D" parent="World" unique_id=1142666411]
+
+[node name="DoorMarker" type="Marker2D" parent="World/Markers" unique_id=1991357302]
+position = Vector2(-224, 92.5)
+
+[node name="CounterMarker" type="Marker2D" parent="World/Markers" unique_id=2041639478]
+position = Vector2(0, 296)
+
+[node name="DecorAnchors" type="Node2D" parent="World" unique_id=1301191481]
+
+[node name="Anchor1" type="Marker2D" parent="World/DecorAnchors" unique_id=1865944501]
+position = Vector2(-192, 185)
+
+[node name="Anchor2" type="Marker2D" parent="World/DecorAnchors" unique_id=164200377]
+position = Vector2(-64, 259)
+
+[node name="Anchor3" type="Marker2D" parent="World/DecorAnchors" unique_id=2144835922]
+position = Vector2(192, 333)
+
+[node name="Anchor4" type="Marker2D" parent="World/DecorAnchors" unique_id=1030869707]
+position = Vector2(256, 444)
+
+[node name="Props" type="Node2D" parent="World" unique_id=256706770]
+y_sort_enabled = true
+
+[node name="Visitors" type="Node2D" parent="World/Props" unique_id=1108872429]
+y_sort_enabled = true
+
+[node name="Bookcases" type="Node2D" parent="World/Props" unique_id=935470181]
+y_sort_enabled = true
+
+[node name="Bookcase1" parent="World/Props/Bookcases" unique_id=1552276683 instance=ExtResource("3_case")]
+position = Vector2(64, 37)
+art = ExtResource("4_caseart")
+plank_starts = Array[Vector2]([Vector2(-49, -34), Vector2(-50, -73), Vector2(-50, -113), Vector2(-49, -155)])
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Bookcase2" parent="World/Props/Bookcases" unique_id=552676495 instance=ExtResource("3_case")]
+position = Vector2(-64, 37)
+art = ExtResource("6_caseleft")
+plank_starts = Array[Vector2]([Vector2(49, -34), Vector2(49, -73), Vector2(49, -113), Vector2(49, -155)])
+mirrored = true
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Bookcase3" parent="World/Props/Bookcases" unique_id=1925602646 instance=ExtResource("3_case")]
+position = Vector2(192, 111)
+art = ExtResource("4_caseart")
+plank_starts = Array[Vector2]([Vector2(-49, -34), Vector2(-50, -73), Vector2(-50, -113), Vector2(-49, -155)])
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Bookcase4" parent="World/Props/Bookcases" unique_id=1608550341 instance=ExtResource("3_case")]
+position = Vector2(-352, 203.5)
+art = ExtResource("6_caseleft")
+plank_starts = Array[Vector2]([Vector2(49, -34), Vector2(49, -73), Vector2(49, -113), Vector2(49, -155)])
+mirrored = true
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Bookcase5" parent="World/Props/Bookcases" unique_id=84688801 instance=ExtResource("3_case")]
+position = Vector2(320, 185)
+art = ExtResource("4_caseart")
+plank_starts = Array[Vector2]([Vector2(-49, -34), Vector2(-50, -73), Vector2(-50, -113), Vector2(-49, -155)])
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Bookcase6" parent="World/Props/Bookcases" unique_id=730565529 instance=ExtResource("3_case")]
+position = Vector2(448, 259)
+art = ExtResource("4_caseart")
+plank_starts = Array[Vector2]([Vector2(-49, -34), Vector2(-50, -73), Vector2(-50, -113), Vector2(-49, -155)])
+spine_art = Array[Texture2D]([ExtResource("5_spine")])
+spine_advance = 8.0
+wall_offset = 29.6
+
+[node name="Counter" type="Polygon2D" parent="World/Props" unique_id=1350455908]
+position = Vector2(0, 296)
+color = Color(0.352941, 0.243137, 0.164706, 1)
+polygon = PackedVector2Array(-64, 0, 0, 37, 64, 0, 64, -60, 0, -23, -64, -60)
+
+[node name="CounterTop" type="Polygon2D" parent="World/Props" unique_id=247357349]
+position = Vector2(0, 296)
+color = Color(0.462745, 0.32549, 0.219608, 1)
+polygon = PackedVector2Array(0, -97, 64, -60, 0, -23, -64, -60)
+
+[node name="DoorPivot" type="Node2D" parent="World/Props" unique_id=1378146556]
+position = Vector2(-224, 92.5)
+
+[node name="DoorPanel" type="Polygon2D" parent="World/Props/DoorPivot" unique_id=705324190]
+color = Color(0.298039, 0.203922, 0.141176, 1)
+polygon = PackedVector2Array(-32, 18, 32, -18, 32, -150, -32, -114)
+
+[node name="Chime" type="GPUParticles2D" parent="World/Props" unique_id=929776741]
+position = Vector2(-224, 92.5)
+emitting = false
+amount = 18
+texture = SubResource("GradientTexture2D_dot")
+lifetime = 1.2
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_chime")

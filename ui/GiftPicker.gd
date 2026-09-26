@@ -6,9 +6,9 @@ extends Control
 signal gift_given(customer_id: String, result: Dictionary)
 signal closed
 
-const SHEET_TOP := -640.0
+const SHEET_TOP := -720.0
 const SHEET_BOTTOM := -88.0
-const SHEET_TRAVEL := 640.0
+const SHEET_TRAVEL := 720.0
 const SLIDE_TIME := 0.28
 
 @onready var _backdrop: ColorRect = $Backdrop

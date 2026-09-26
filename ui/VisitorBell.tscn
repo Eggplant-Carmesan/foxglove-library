@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://ui/VisitorBell.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="sb_bell_normal"]
+bg_color = Color(0.94902, 0.913725, 0.839216, 1)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+
+[sub_resource type="StyleBoxFlat" id="sb_bell_pressed"]
+bg_color = Color(0.862745, 0.811765, 0.701961, 1)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+
+[sub_resource type="StyleBoxFlat" id="sb_badge"]
+bg_color = Color(0.168627, 0.141176, 0.109804, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="sb_empty"]
+
+[node name="VisitorBell" type="Button"]
+custom_minimum_size = Vector2(88, 88)
+offset_right = 88.0
+offset_bottom = 88.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("sb_bell_normal")
+theme_override_styles/hover = SubResource("sb_bell_normal")
+theme_override_styles/pressed = SubResource("sb_bell_pressed")
+theme_override_styles/disabled = SubResource("sb_bell_pressed")
+theme_override_styles/focus = SubResource("sb_empty")
+script = ExtResource("1_script")
+
+[node name="Bell" type="Polygon2D" parent="."]
+position = Vector2(44, 42)
+color = Color(0.168627, 0.141176, 0.109804, 1)
+polygon = PackedVector2Array(0, -22, 7, -18, 11, -10, 12, 2, 16, 9, 19, 14, -19, 14, -16, 9, -12, 2, -11, -10, -7, -18)
+
+[node name="Clapper" type="Polygon2D" parent="."]
+position = Vector2(44, 42)
+color = Color(0.168627, 0.141176, 0.109804, 1)
+polygon = PackedVector2Array(0, 16, 5, 20, 0, 24, -5, 20)
+
+[node name="CountBadge" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -34.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("sb_badge")
+
+[node name="CountLabel" type="Label" parent="CountBadge"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94902, 0.913725, 0.839216, 1)
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

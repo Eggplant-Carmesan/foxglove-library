@@ -40,12 +40,21 @@ var state: Dictionary = {}
 
 var rng := RandomNumberGenerator.new()
 
+## Paces visitors through the door instead of having them all wait at once.
+var _arrival_timer: Timer
+
 
 func _ready() -> void:
 	rng.randomize()
+	_arrival_timer = Timer.new()
+	_arrival_timer.one_shot = true
+	_arrival_timer.timeout.connect(_on_arrival_due)
+	add_child(_arrival_timer)
+
 	_load_catalogs()
 	if not load_game():
 		new_game()
+	_schedule_next_arrival(Tuning.FIRST_ARRIVAL_DELAY)
 
 
 func _load_catalogs() -> void:
@@ -102,13 +111,18 @@ func new_game() -> void:
 		"giftedToday": [],
 		"visits": {},
 		"demandHints": {},
+		"pendingArrivals": [],
+		"visitsToday": 0,
 		"specialUsed": {},
 		"giftsKnown": {},
 		"dayLog": DayLogic.new_day_log(),
 	}
 	state["nextTrending"] = TrendingLogic.pick_weighted(books, Tuning.TRENDING_COUNT, state["trending"], rng)
 	state["catalogToday"] = CatalogLogic.roll(state, books, customers, rng)
-	DayLogic.generate_queue(state, data(), rng)
+	var visits := DayLogic.generate_day_visits(state, data(), rng)
+	state["pendingArrivals"] = visits
+	state["visitsToday"] = visits.size()
+	_schedule_next_arrival(Tuning.FIRST_ARRIVAL_DELAY)
 
 	save_game()
 	state_reset.emit()
@@ -170,12 +184,52 @@ func reset_game() -> void:
 
 func start_day() -> Dictionary:
 	var summary := DayLogic.start_day(state, data(), rng)
+	_schedule_next_arrival(Tuning.FIRST_ARRIVAL_DELAY)
 	save_game()
 	day_changed.emit(state["day"])
 	acorns_changed.emit(state["acorns"])
 	shelf_changed.emit()
 	queue_changed.emit()
 	return summary
+
+
+# --- Arrivals ---
+# The day's visitors wait outside and come in one at a time, so the player
+# gets quiet stretches to browse, order and furnish between them.
+
+func pending_arrivals() -> int:
+	return state.get("pendingArrivals", []).size()
+
+
+## How far through the day's visitors the player has worked, 0 to 1.
+func day_progress() -> float:
+	var total: int = maxi(1, int(state.get("visitsToday", 0)))
+	var left: int = state.get("queue", []).size() + pending_arrivals()
+	return clampf(1.0 - float(left) / float(total), 0.0, 1.0)
+
+
+func _schedule_next_arrival(delay: float) -> void:
+	if _arrival_timer == null:
+		return
+	if pending_arrivals() == 0:
+		_arrival_timer.stop()
+		return
+	_arrival_timer.start(delay)
+
+
+func _on_arrival_due() -> void:
+	var pending: Array = state.get("pendingArrivals", [])
+	if pending.is_empty():
+		return
+	var visit: Dictionary = pending.pop_front()
+	var queue: Array = state.get("queue", [])
+	queue.append(visit)
+	state["queue"] = queue
+	state["pendingArrivals"] = pending
+
+	save_game()
+	queue_changed.emit()
+	_schedule_next_arrival(Tuning.ARRIVAL_INTERVAL)
 
 
 # --- Queue ---

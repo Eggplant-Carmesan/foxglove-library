@@ -5,8 +5,15 @@ extends RefCounted
 ##
 ## `data` bundles the static catalogs: { books, customers, decor, dialog }.
 
+## Who might come by today.
+##
+## Reputation is floored at nothing for this, because unlockAtRep says how
+## much standing a visitor waits for, not a level the library can fall
+## below. Taken literally a negative reputation locks out even the regulars
+## who wait for none, and since visitors are the only way to earn reputation
+## back, an empty library would stay empty.
 static func unlocked_customer_ids(state: Dictionary, customers_catalog: Dictionary) -> Array:
-	var reputation: int = state.get("reputation", 0)
+	var reputation: int = maxi(int(state.get("reputation", 0)), 0)
 	var rooms: Dictionary = state.get("rooms", {})
 	var result: Array = []
 	for id in customers_catalog.keys():
@@ -143,33 +150,44 @@ static func generate_wanderer_visit(state: Dictionary, data: Dictionary, rng: Ra
 	}
 
 
-## Builds today's queue: every loan due today becomes a return visit, topped
-## off with new requests. The Reading Nook brings one extra visitor a day.
-static func generate_queue(state: Dictionary, data: Dictionary, rng: RandomNumberGenerator) -> Array:
+## Builds the day's visitors: every loan due today becomes a return visit,
+## topped off with new requests. The Reading Nook brings one extra a day.
+## They are handed back as a list rather than dropped straight into the
+## queue, so start_day can let them arrive over the day.
+static func generate_day_visits(state: Dictionary, data: Dictionary, rng: RandomNumberGenerator) -> Array:
 	var split := split_due_loans(state)
 	state["loans"] = split["remaining"]
 
-	var queue: Array = []
+	var visits: Array = []
 	for loan in split["due"]:
-		queue.append({ "kind": "return", "loan": loan })
+		visits.append({ "kind": "return", "loan": loan })
 
-	var target_size := rng.randi_range(Tuning.QUEUE_SIZE_MIN, Tuning.QUEUE_SIZE_MAX)
+	var target_size := rng.randi_range(Tuning.DAY_VISITS_MIN, Tuning.DAY_VISITS_MAX)
 	if FurnishLogic.owns_room(state, FurnishLogic.NOOK):
 		target_size += 1
 
-	if queue.size() < target_size:
+	if visits.size() < target_size:
 		var wanderer := generate_wanderer_visit(state, data, rng)
 		if not wanderer.is_empty():
-			queue.append(wanderer)
+			visits.append(wanderer)
 
-	while queue.size() < target_size:
+	while visits.size() < target_size:
 		var visit := generate_new_request_visit(state, data, rng)
 		if visit.is_empty():
 			break
-		queue.append(visit)
+		visits.append(visit)
 
-	state["queue"] = queue
-	return queue
+	# Returns and requests shouldn't clump at either end of the day.
+	_shuffle(visits, rng)
+	return visits
+
+
+static func _shuffle(items: Array, rng: RandomNumberGenerator) -> void:
+	for i in range(items.size() - 1, 0, -1):
+		var j := rng.randi_range(0, i)
+		var swap = items[i]
+		items[i] = items[j]
+		items[j] = swap
 
 
 ## Creates a Loan from a recommended shelf copy and removes the copy from
@@ -219,14 +237,19 @@ static func start_day(state: Dictionary, data: Dictionary, rng: RandomNumberGene
 	state["acorns"] = int(state.get("acorns", 0)) + Tuning.DAILY_INCOME
 	var trending_result := TrendingLogic.advance(state, books_catalog, rng)
 	state["catalogToday"] = CatalogLogic.roll(state, books_catalog, customers_catalog, rng)
-	var queue := generate_queue(state, data, rng)
+
+	# Nobody is at the door yet; they arrive as the day goes on.
+	var visits := generate_day_visits(state, data, rng)
+	state["queue"] = []
+	state["pendingArrivals"] = visits
+	state["visitsToday"] = visits.size()
 
 	return {
 		"day": state["day"],
 		"delivered": delivered,
 		"dailyIncome": Tuning.DAILY_INCOME,
 		"trending": trending_result,
-		"queue": queue,
+		"visits": visits.size(),
 	}
 
 
