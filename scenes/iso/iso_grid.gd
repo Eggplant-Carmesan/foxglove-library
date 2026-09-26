@@ -14,6 +14,8 @@ const TILE := Vector2(128.0, 74.0)
 ## Rise over run along a ground axis — tan(30 degrees).
 const AXIS_SLOPE := TILE.y / TILE.x
 const ART_SCALE := 0.5
+## Alpha at or below which a pixel is not worth tapping.
+const ALPHA_HIT := 0.1
 
 ## Walking one tile along the shelf axis, in screen pixels.
 const AXIS_X := Vector2(TILE.x * 0.5, TILE.y * 0.5)
@@ -77,9 +79,10 @@ static func anchor_for(texture: Texture2D, depth_tiles: float = 1.0) -> Vector2:
 ## The drawn part of a texture, ignoring any transparent margin around it.
 ##
 ## Exporting from a paint app usually leaves a few pixels of nothing on each
-## side. That margin is invisible but it is real width, and lining pieces up
-## by the canvas would space them by it. Cached, because reading the pixels
-## back costs more than the answer is worth to recompute.
+## side, and a rim of near-nothing inside that. Both are invisible and both
+## are real width, so lining pieces up by the canvas spaces them by a margin
+## that is not there. Cached, because reading the pixels back costs more
+## than the answer is worth to recompute.
 static var _content_rects := {}
 
 static func content_rect(texture: Texture2D) -> Rect2:
@@ -93,9 +96,66 @@ static func content_rect(texture: Texture2D) -> Rect2:
 	if image != null:
 		var used := image.get_used_rect()
 		if used.size.x > 0 and used.size.y > 0:
-			rect = Rect2(used)
+			rect = _trim_fringe(image, Rect2(used))
 	_content_rects[key] = rect
 	return rect
+
+
+## Pulls the edges in past any fringe too faint to see.
+##
+## An export from a paint app can leave a rim of pixels at an alpha of one
+## or two — invisible, but real width as far as get_used_rect is concerned.
+## Packing books by that width spaces them apart by a margin of nothing.
+static func _trim_fringe(image: Image, rect: Rect2) -> Rect2:
+	var left := int(rect.position.x)
+	var right := int(rect.end.x) - 1
+	var top := int(rect.position.y)
+	var bottom := int(rect.end.y) - 1
+	while left < right and _column_is_clear(image, left, top, bottom):
+		left += 1
+	while right > left and _column_is_clear(image, right, top, bottom):
+		right -= 1
+	while top < bottom and _row_is_clear(image, top, left, right):
+		top += 1
+	while bottom > top and _row_is_clear(image, bottom, left, right):
+		bottom -= 1
+	return Rect2(left, top, right - left + 1, bottom - top + 1)
+
+
+static func _column_is_clear(image: Image, x: int, top: int, bottom: int) -> bool:
+	for y in range(top, bottom + 1):
+		if image.get_pixel(x, y).a > ALPHA_HIT:
+			return false
+	return true
+
+
+static func _row_is_clear(image: Image, y: int, left: int, right: int) -> bool:
+	for x in range(left, right + 1):
+		if image.get_pixel(x, y).a > ALPHA_HIT:
+			return false
+	return true
+
+
+## Whether a texture is actually drawn at a point in its own image.
+##
+## Pieces stand close enough together that their canvases overlap, so a tap
+## has to fall through the transparent corner of the case in front to reach
+## the one beside it. Cached like the rects, for the same reason.
+static var _images := {}
+
+static func opaque_at(texture: Texture2D, pixel: Vector2) -> bool:
+	if texture == null:
+		return false
+	var size := texture.get_size()
+	if pixel.x < 0.0 or pixel.y < 0.0 or pixel.x >= size.x or pixel.y >= size.y:
+		return false
+	var key := texture.get_rid()
+	if not _images.has(key):
+		_images[key] = texture.get_image()
+	var image: Image = _images[key]
+	if image == null:
+		return true
+	return image.get_pixel(int(pixel.x), int(pixel.y)).a > ALPHA_HIT
 
 
 ## Where a piece standing on a shelf meets the plank: its front-bottom

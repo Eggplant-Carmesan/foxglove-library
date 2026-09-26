@@ -22,12 +22,18 @@ var _landscape := false
 @onready var _day_summary: DaySummary = %DaySummary
 @onready var _furnish_screen: FurnishScreen = %FurnishScreen
 @onready var _gift_picker: GiftPicker = %GiftPicker
+@onready var _bookcase_view: BookcaseView = %BookcaseView
 
 
 func _ready() -> void:
 	_tab_bar.tab_selected.connect(_on_tab_selected)
-	_library.spine_selected.connect(_book_card.open)
-	_book_card.closed.connect(_library.clear_selection)
+	_library.bookcase_selected.connect(_on_bookcase_selected)
+	_bookcase_view.book_selected.connect(_book_card.open)
+	_book_card.closed.connect(_bookcase_view.clear_selection)
+	# Registered after the Library's own handler, which runs first because a
+	# child is ready before its parent — so the case has already been given
+	# its new copies by the time the open view reads them back.
+	GameState.shelf_changed.connect(_on_shelf_changed)
 	_book_card.recommend_pressed.connect(_on_recommend)
 	_library_screen.filter_changed.connect(_library.apply_filter)
 	_library_screen.greet_pressed.connect(_on_greet_pressed)
@@ -72,6 +78,18 @@ func _on_tab_selected(tab_name: String) -> void:
 	_journal_screen.visible = is_journal
 	_furnish_screen.visible = is_furnish
 	_placeholder.visible = false
+	if not is_library:
+		_bookcase_view.close()
+
+
+## Tapping a case in the hall brings it to the front, where the spines are
+## big enough to read and to tap. In pick mode the request comes with it.
+func _on_bookcase_selected(bookcase: IsoBookcase, index: int) -> void:
+	_bookcase_view.open(bookcase, index, _library.filter_tag)
+
+
+func _on_shelf_changed() -> void:
+	_bookcase_view.refresh(_library.filter_tag)
 
 
 func _on_zone_selected(zone: String) -> void:
@@ -136,18 +154,25 @@ func _on_suggest() -> void:
 
 
 func _enter_pick_mode() -> void:
-	var request: Dictionary = GameState.current_visit().get("request", {})
-	_library_screen.set_pick_mode(true, request.get("text", ""))
+	_library_screen.set_pick_mode(true, _pick_request_text())
+	_bookcase_view.set_pick_mode(true, _pick_request_text())
 	_book_card.set_pick_mode(true)
 
 
 func _exit_pick_mode() -> void:
 	_library_screen.set_pick_mode(false)
+	_bookcase_view.set_pick_mode(false)
 	_book_card.set_pick_mode(false)
+
+
+func _pick_request_text() -> String:
+	var request: Dictionary = GameState.current_visit().get("request", {})
+	return request.get("text", "")
 
 
 func _on_pick_back_pressed() -> void:
 	_exit_pick_mode()
+	_bookcase_view.close()
 	_customer_sheet.open(GameState.current_visit())
 
 
@@ -174,6 +199,8 @@ func _on_declined() -> void:
 ## The visitor reacts, then walks out with whatever they were lent.
 func _send_off(line: String, carried_book_id: String = "") -> void:
 	_exit_pick_mode()
+	# The shelves close so the player watches the visitor leave with the book.
+	_bookcase_view.close()
 	if line != "":
 		_library.visitor_say(line)
 		await get_tree().create_timer(REACTION_HOLD).timeout

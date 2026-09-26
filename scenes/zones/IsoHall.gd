@@ -11,6 +11,8 @@ extends Node2D
 
 ## How far past the floor's edge the camera may travel.
 const EDGE_MARGIN := 160.0
+## Extra room above the floor, for the walls and cases that stand on it.
+const HEAD_ROOM := 320.0
 
 ## Everything the editor keeps on the grid. Containers are in the list
 ## harmlessly — they sit at the origin — so that their children are reached.
@@ -88,6 +90,25 @@ func get_content_bounds() -> Vector2:
 	var left := IsoGrid.tile_to_world(left_tile).x - IsoGrid.TILE.x * 0.5
 	var right := IsoGrid.tile_to_world(right_tile).x + IsoGrid.TILE.x * 0.5
 	return Vector2(left - EDGE_MARGIN, right + EDGE_MARGIN)
+
+
+## The whole room in world space, with room to breathe, so the camera can be
+## kept over it in both directions.
+##
+## The floor says how far the room reaches sideways and towards the viewer,
+## but the walls and cases stand well above its back corner, so the top gets
+## a taller margin than the rest.
+func get_content_rect() -> Rect2:
+	var span := get_content_bounds()
+	var used: Rect2i = _floor.get_used_rect()
+	if used.size == Vector2i.ZERO:
+		return Rect2(span.x, -EDGE_MARGIN, span.y - span.x, EDGE_MARGIN * 2.0)
+	# A diamond grid is highest at the tile where both axes are least, and
+	# lowest at the tile where both are greatest.
+	var top := IsoGrid.tile_to_world(Vector2(used.position)).y - IsoGrid.TILE.y * 0.5 - HEAD_ROOM
+	var bottom := IsoGrid.tile_to_world(Vector2(used.end - Vector2i.ONE)).y \
+		+ IsoGrid.TILE.y * 0.5 + EDGE_MARGIN
+	return Rect2(span.x, top, span.y - span.x, bottom - top)
 
 
 ## Door swings open and the chime sparkles, as a customer comes or goes.

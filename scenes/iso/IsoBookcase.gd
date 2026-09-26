@@ -24,6 +24,25 @@ const SPINE_GAP := 0.0
 @export var plank_starts: Array[Vector2] = [Vector2(-92.0, -46.0), Vector2(-92.0, -166.0)]
 ## How many books fit along one shelf.
 @export var slots_per_plank := 3
+## How far forward on its plank a book stands, in pixels.
+##
+## A plank is drawn showing its top surface, and plank_starts marks the back
+## edge of it. A book left there has the whole shelf visible in front of it,
+## which reads as floating however well the rest is measured. Books are
+## faced to the front instead, the way a shelf is actually kept.
+##
+## Forward is straight DOWN the screen, not along the plank's normal. Coming
+## forward also means sliding along the shelf to stay clear of its end, and
+## those two steps are one ground axis each — they cancel horizontally and
+## leave a purely vertical move. That is also why one number serves both
+## handednesses: a mirrored case swaps which axis is which, and the sum is
+## the same. The same cancellation as wall_offset, the other way up.
+##
+## Short of the plank's full depth on purpose. A book is anchored at the
+## left corner of its base, and the front corner of that base sits lower
+## still, so a book brought all the way to the front edge hangs its near
+## corner over it. Zero puts books against the back of the shelf.
+@export var shelf_seat := 11.0
 ## True for a bookcase against the back-left wall: the art is the mirrored
 ## drawing, its shelves fall to the left instead of the right, and its books
 ## are drawn from their other side to match.
@@ -63,6 +82,10 @@ const SPINE_GAP := 0.0
 		_apply_wall_offset()
 
 var spines: Array[IsoSpine] = []
+## The copies this case is showing, in shelf order. Kept so the front-on
+## view can lay out the same books in the same order without re-deriving
+## which slice of the shelf belongs to this case.
+var copies: Array = []
 
 ## Total books this bookcase holds.
 var slots: int:
@@ -86,42 +109,59 @@ func _ready() -> void:
 func _apply_wall_offset() -> void:
 	if not is_node_ready():
 		return
-	# The children move, not the node, so snapping and spine_at still work
-	# off the tile the bookcase belongs to.
+	# The children move, not the node, so snapping and the tap test still
+	# work off the tile the bookcase belongs to.
 	var back := Vector2(0.0, -wall_offset)
 	_placeholder.position = back
 	_art_slot.position = back
 	_shelves.position = back
 
 
-func set_copies(copies: Array) -> void:
+func set_copies(new_copies: Array) -> void:
 	for spine in spines:
 		spine.queue_free()
 	spines.clear()
+	copies = new_copies
 
 	var next_offset: Array[float] = []
 	next_offset.resize(plank_starts.size())
 	next_offset.fill(0.0)
 
 	for i in mini(copies.size(), slots):
-		var plank := i / slots_per_plank
+		var plank := ShelfLayout.plank_of(i, slots_per_plank)
 		var spine: IsoSpine = SPINE_SCENE.instantiate()
 		_shelves.add_child(spine)
 		spine.art_variants = spine_art
 		spine.art_anchor = spine_anchor
 		spine.mirrored = mirrored
 		spine.setup(copies[i])
-		spine.position = plank_starts[plank] + spine.shelf_step(next_offset[plank])
+		spine.position = plank_starts[plank] + _facing() \
+			+ spine.shelf_step(next_offset[plank])
 		var advance := spine_advance if spine_advance > 0.0 else spine.spine_width
 		next_offset[plank] += advance + SPINE_GAP
 		spines.append(spine)
 
 
-## The spine whose rectangle contains a world point, or null. Searched from
-## the front of the shelf back, so the book nearest the viewer wins where
-## two overlap.
-func spine_at(world_point: Vector2) -> IsoSpine:
-	for i in range(spines.size() - 1, -1, -1):
-		if spines[i].get_world_rect().has_point(world_point):
-			return spines[i]
-	return null
+## The step from a plank's back edge to where its books stand.
+func _facing() -> Vector2:
+	return Vector2(0.0, shelf_seat)
+
+
+## Whether a world point lands on this case's art.
+##
+## Tested against the drawn pixels, not the canvas: cases stand shoulder to
+## shoulder along a wall and their canvases overlap, so a tap near the join
+## has to fall through the transparent corner of one to reach the other.
+func contains_point(world_point: Vector2) -> bool:
+	if _art_slot.texture == null:
+		return get_world_rect().has_point(world_point)
+	var local := _art_slot.get_global_transform().affine_inverse() * world_point
+	return IsoGrid.opaque_at(_art_slot.texture, local - _art_slot.offset)
+
+
+## The case's art in world space. Used to frame it, and as the hit area
+## while the art is still a placeholder.
+func get_world_rect() -> Rect2:
+	if _art_slot.texture == null:
+		return Rect2(global_position - Vector2(128.0, 280.0), Vector2(256.0, 317.0))
+	return _art_slot.get_global_transform() * Rect2(_art_slot.offset, _art_slot.texture.get_size())

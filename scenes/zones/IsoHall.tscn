@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://d2hrulfxie70q"]
 
 [ext_resource type="Script" uid="uid://dvbb48cgav2cs" path="res://scenes/zones/IsoHall.gd" id="1_hall"]
-[ext_resource type="TileSet" path="res://scenes/iso/floor_tiles.tres" id="2_floor_tiles"]
+[ext_resource type="TileSet" uid="uid://b60hnkxttfmv" path="res://scenes/iso/floor_tiles.tres" id="2_floor_tiles"]
 [ext_resource type="PackedScene" path="res://scenes/iso/IsoBookcase.tscn" id="3_case"]
 [ext_resource type="Texture2D" uid="uid://cbhtmgvuceib1" path="res://art/iso/structure/bookcase_right.png" id="4_caseart"]
 [ext_resource type="Texture2D" uid="uid://dtupmpnbp727d" path="res://art/iso/books/spine_a.png" id="5_spine"]
 [ext_resource type="Texture2D" uid="uid://f5t2outmq7wv" path="res://art/iso/structure/bookcase_left.png" id="6_caseleft"]
-[ext_resource type="TileSet" path="res://scenes/iso/wall_right_tiles.tres" id="7_wallr_tiles"]
-[ext_resource type="TileSet" path="res://scenes/iso/wall_left_tiles.tres" id="8_walll_tiles"]
+[ext_resource type="TileSet" uid="uid://cgkqm16o5njgk" path="res://scenes/iso/wall_right_tiles.tres" id="7_wallr_tiles"]
+[ext_resource type="TileSet" uid="uid://c2gddbvat5ap1" path="res://scenes/iso/wall_left_tiles.tres" id="8_walll_tiles"]
 
 [sub_resource type="Gradient" id="Gradient_dot"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -113,7 +113,7 @@ spine_advance = 8.0
 wall_offset = 29.6
 
 [node name="Bookcase4" parent="World/Props/Bookcases" unique_id=1608550341 instance=ExtResource("3_case")]
-position = Vector2(-320, 185)
+position = Vector2(-352, 203.5)
 art = ExtResource("6_caseleft")
 plank_starts = Array[Vector2]([Vector2(49, -34), Vector2(49, -73), Vector2(49, -113), Vector2(49, -155)])
 mirrored = true

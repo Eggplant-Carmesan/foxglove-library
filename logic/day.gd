@@ -5,8 +5,15 @@ extends RefCounted
 ##
 ## `data` bundles the static catalogs: { books, customers, decor, dialog }.
 
+## Who might come by today.
+##
+## Reputation is floored at nothing for this, because unlockAtRep says how
+## much standing a visitor waits for, not a level the library can fall
+## below. Taken literally a negative reputation locks out even the regulars
+## who wait for none, and since visitors are the only way to earn reputation
+## back, an empty library would stay empty.
 static func unlocked_customer_ids(state: Dictionary, customers_catalog: Dictionary) -> Array:
-	var reputation: int = state.get("reputation", 0)
+	var reputation: int = maxi(int(state.get("reputation", 0)), 0)
 	var rooms: Dictionary = state.get("rooms", {})
 	var result: Array = []
 	for id in customers_catalog.keys():

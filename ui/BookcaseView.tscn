@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/BookcaseView.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://art/front/bookcase_front.png" id="2_caseart"]
+
+[node name="BookcaseView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.101961, 0.0823529, 0.97)
+
+[node name="CaseTitle" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = -32.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_type_variation = &"Heading"
+text = "Bookcase 1"
+horizontal_alignment = 1
+
+[node name="PickBanner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 140.0
+offset_right = -32.0
+offset_bottom = 268.0
+grow_horizontal = 2
+theme_type_variation = &"ParchmentPanel"
+
+[node name="PickRequest" type="Label" parent="PickBanner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InkLabel"
+text = "Request"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Stage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 280.0
+offset_right = -32.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Case" type="Control" parent="Stage"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 376.0
+offset_bottom = 401.0
+mouse_filter = 2
+
+[node name="CaseArt" type="TextureRect" parent="Stage/Case"]
+layout_mode = 1
+expand_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_caseart")
+
+[node name="Books" type="Control" parent="Stage/Case"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CloseButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -160.0
+offset_right = -32.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to the hall"

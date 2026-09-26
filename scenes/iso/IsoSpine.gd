@@ -16,8 +16,6 @@ const HEIGHT_VARIANTS := 5
 
 const DIM_COLOR := Color(0.4, 0.42, 0.4, 1.0)
 const DUSTY_COLOR := Color(0.78, 0.76, 0.7, 1.0)
-## How far a selected book slides out of the shelf, toward the viewer.
-const SELECTED_SLIDE := 14.0
 
 ## Where the spine meets the plank, in image pixels. Zero works it out from
 ## the art, which is right for anything drawn on the spine template.
@@ -36,7 +34,6 @@ var spine_height := HEIGHT_MIN
 var mirrored := false
 
 var _base_color := Color.WHITE
-var _rest_position := Vector2.ZERO
 
 @onready var _placeholder: Polygon2D = $Placeholder
 @onready var _art_slot: Sprite2D = $ArtSlot
@@ -114,27 +111,3 @@ func set_trending(trending: bool) -> void:
 func set_dimmed(dimmed: bool) -> void:
 	var target := DIM_COLOR if dimmed else Color.WHITE
 	create_tween().tween_property(self, "modulate", target, 0.15)
-
-
-## A selected book slides out of the shelf toward the viewer, along the
-## ground axis that faces the camera.
-func set_selected(selected: bool) -> void:
-	if _rest_position == Vector2.ZERO:
-		_rest_position = position
-	# Out of the shelf means toward the open face, which is the ground axis
-	# the bookcase does not run along.
-	var axis := IsoGrid.AXIS_X if mirrored else IsoGrid.AXIS_Y
-	var out := axis.normalized() * SELECTED_SLIDE
-	var target := _rest_position + out if selected else _rest_position
-	create_tween().tween_property(self, "position", target, 0.2) \
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-
-## World-space rectangle of the spine, used for tap hit-testing. The art is
-## a slim quad, so its bounding box is close enough to tap accurately.
-func get_world_rect() -> Rect2:
-	# The shelf falls away from the anchor, so the box runs from the near
-	# end's top down to the far end's base.
-	var along := shelf_step(spine_width)
-	var corner := global_position + Vector2(minf(0.0, along.x), -spine_height)
-	return Rect2(corner, Vector2(absf(along.x), spine_height + along.y))
